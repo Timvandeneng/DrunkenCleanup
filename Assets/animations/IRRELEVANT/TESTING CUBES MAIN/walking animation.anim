@@ -137,7 +137,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 26.658, y: 0, z: 0}
+        value: {x: 50.068, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -146,7 +146,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.73333335
-        value: {x: -38.824, y: 0, z: 0}
+        value: {x: -57.522, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -155,7 +155,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1.5
-        value: {x: 26.658, y: 0, z: 0}
+        value: {x: 50.068, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -205,7 +205,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -39.701, y: 0, z: 0}
+        value: {x: -55.907, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -214,7 +214,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.73333335
-        value: {x: 26.459, y: 0, z: 0}
+        value: {x: 49.566, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -223,7 +223,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1.5
-        value: {x: -39.701, y: 0, z: 0}
+        value: {x: -55.907, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -827,7 +827,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 26.658
+        value: 50.068
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -836,7 +836,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.73333335
-        value: -38.824
+        value: -57.522
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -845,7 +845,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.5
-        value: 26.658
+        value: 50.068
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1061,7 +1061,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -39.701
+        value: -55.907
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1070,7 +1070,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.73333335
-        value: 26.459
+        value: 49.566
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1079,7 +1079,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.5
-        value: -39.701
+        value: -55.907
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1388,7 +1388,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: pelvis/middle spine
+    path: pelvis/l hip/left knee
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1400,7 +1400,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: pelvis/middle spine
+    path: pelvis/l hip/left knee
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1412,7 +1412,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: pelvis/middle spine
+    path: pelvis/l hip/left knee
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1424,7 +1424,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: pelvis/middle spine/l houlder
+    path: pelvis/middle spine
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1436,7 +1436,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: pelvis/middle spine/l houlder
+    path: pelvis/middle spine
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1448,43 +1448,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: pelvis/middle spine/l houlder
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: pelvis/l hip
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: pelvis/l hip
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: pelvis/l hip
+    path: pelvis/middle spine
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1532,7 +1496,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: pelvis/middle spine/l houlder/l elbow
+    path: pelvis/middle spine/r shoulder
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1544,7 +1508,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: pelvis/middle spine/l houlder/l elbow
+    path: pelvis/middle spine/r shoulder
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1556,7 +1520,43 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: pelvis/middle spine/l houlder/l elbow
+    path: pelvis/middle spine/r shoulder
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: pelvis/middle spine/l houlder
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: pelvis/middle spine/l houlder
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: pelvis/middle spine/l houlder
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1604,7 +1604,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: pelvis/middle spine/r shoulder
+    path: pelvis/middle spine/l houlder/l elbow
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1616,7 +1616,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: pelvis/middle spine/r shoulder
+    path: pelvis/middle spine/l houlder/l elbow
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1628,7 +1628,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: pelvis/middle spine/r shoulder
+    path: pelvis/middle spine/l houlder/l elbow
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1640,7 +1640,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: pelvis/l hip/left knee
+    path: pelvis/l hip
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1652,7 +1652,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: pelvis/l hip/left knee
+    path: pelvis/l hip
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1664,7 +1664,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: pelvis/l hip/left knee
+    path: pelvis/l hip
     classID: 4
     script: {fileID: 0}
     flags: 0

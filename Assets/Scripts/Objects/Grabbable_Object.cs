@@ -12,6 +12,8 @@ public class Grabbable_Object : MonoBehaviour
     bool cangetsuckedleft;
     bool cangetsuckedright;
 
+    Vector3 velocity = Vector3.zero;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,15 +52,15 @@ public class Grabbable_Object : MonoBehaviour
         {
             if (distanceLeft < distanceRight && cangetsuckedleft)
             {
-                Vector3 desiredpos = mngr.lefthand.position - transform.position;
-                float desiredForce = mngr.ActivationDistance - Vector3.Distance(transform.position, mngr.lefthand.position);
-                rb.AddForce(desiredpos * desiredForce * mngr.AttractionForce);
+                Vector3 desiredpos = mngr.lefthand.position;
+                float desiredForce = mngr.AttractionForce;
+                rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredpos, ref velocity, desiredForce));
             }
             else if(distanceRight < distanceLeft && cangetsuckedright)
             {
-                Vector3 desiredpos = mngr.rigthhand.position - transform.position;
-                float desiredForce = mngr.ActivationDistance - Vector3.Distance(transform.position, mngr.rigthhand.position);
-                rb.AddForce(desiredpos * desiredForce * mngr.AttractionForce);
+                Vector3 desiredpos = mngr.rigthhand.position;
+                float desiredForce = mngr.AttractionForce;
+                rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredpos, ref velocity, desiredForce));
             }
         }
     }

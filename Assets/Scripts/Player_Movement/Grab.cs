@@ -26,8 +26,6 @@ public class Grab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(21 % 5);
-
         //checking if we want to grab
         leftGrab = Input.GetKey(KeyCode.Mouse0);
         rightGrab = Input.GetKey(KeyCode.Mouse1);
