@@ -17,6 +17,8 @@ public class cameraControl : MonoBehaviour
 
     public ConfigurableJoint hipjoint;
 
+    public float X, Y, Z;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,15 +28,20 @@ public class cameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //TODO
+        //FIX ROTATIONS
+        //HAS TO DO WITH ORIENTATION I CHANGED LINE 35
+
         //Make sure we rotate using the mouse and our camera follows accordingly
         mouseX += Input.GetAxis("Mouse X") * rotationspeed;
-        RotationAnchor.rotation = Quaternion.Euler(0, mouseX, 0);
+        RotationAnchor.rotation = Quaternion.Euler(X, mouseX, Z);
 
         //also make sure our hip only rotates towards our anchor when moving to get a free cam effects
         float input = Input.GetAxis("Vertical");
         bool isgrabbingR = Input.GetKey(KeyCode.Mouse1);
         bool isgrabbingL = Input.GetKey(KeyCode.Mouse0);
-        hipjoint.targetRotation = input != 0 || isgrabbingR || isgrabbingL ? Quaternion.Inverse(RotationAnchor.rotation) : hipjoint.targetRotation;
+        Quaternion desiredRot = RotationAnchor.rotation; 
+        hipjoint.targetRotation = input != 0 || isgrabbingR || isgrabbingL ? desiredRot : hipjoint.targetRotation;
     }
 
     private void FixedUpdate()

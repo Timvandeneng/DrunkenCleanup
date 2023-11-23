@@ -15,6 +15,6 @@ public class Force_position : MonoBehaviour
     void Update()
     {
         transform.position = desiredposition.position;
-        transform.rotation = Quaternion.Euler(transform.rotation.x, desiredposition.rotation.eulerAngles.y, transform.rotation.z);
+        transform.rotation = Quaternion.Euler(transform.rotation.x + 90, desiredposition.rotation.eulerAngles.y, transform.rotation.z);
     }
 }

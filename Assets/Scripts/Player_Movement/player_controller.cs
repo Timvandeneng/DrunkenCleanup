@@ -34,8 +34,8 @@ public class player_controller : MonoBehaviour
         //Also use our forceposition to accurately go forward
         float DesiredZvel = Input.GetAxis("Vertical") * speed;
         float DesiredXvel = Input.GetAxis("Horizontal") * strafeSpeed;
-        hipsrb.AddForce(-transform.right * DesiredZvel);
-        hipsrb.AddForce(ForcePosition.forward * DesiredXvel);
+        hipsrb.AddForce(-ForcePosition.right * DesiredZvel);
+        hipsrb.AddForce(ForcePosition.right * DesiredXvel);
 
         //making sure our player stands still when no keys are pressed down(no sliding)
         Vector3 restVelocity = new Vector3(0, hipsrb.velocity.y * 0.5f, 0);
