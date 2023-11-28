@@ -11,11 +11,12 @@ public class Grab : MonoBehaviour
     Rigidbody rb;
     public bool hasgrabbed = false;
     public bool lefthand;
-    FixedJoint fj;
     public bool cangrab;
 
     public bool leftGrab;
     public bool rightGrab;
+
+    public GameObject empty;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,11 @@ public class Grab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //TODO
+        //OBJECT WON'T RESET!? I DONT KNOW HOW
+        //FIX IT YOU FOKING WANKER!!!
+
+
         //checking if we want to grab
         leftGrab = Input.GetKey(KeyCode.Mouse0);
         rightGrab = Input.GetKey(KeyCode.Mouse1);
@@ -54,21 +60,26 @@ public class Grab : MonoBehaviour
                         AddFixjointMakeParent();
                     }
                 }
+                else
+                {
+                    //DELETE THIS!
+                    keepObjectOnHand();
+                }
             }
 
             //checking which hand we are attached to
-            if (lefthand)
-            {
-                if (!leftGrab && hasgrabbed)
+           if (lefthand)
+           {
+                if (!leftGrab)
                 {
-                    DestroyFixedJoint();
+                   DestroyFixedJoint();
                 }
-            }
+           }
             else
             {
-                if (!rightGrab && hasgrabbed)
+                if (!rightGrab)
                 {
-                    DestroyFixedJoint();
+                   DestroyFixedJoint();
                 }
             }
 
@@ -77,21 +88,27 @@ public class Grab : MonoBehaviour
 
     void AddFixjointMakeParent()
     {
-        fj = grabbedObj.AddComponent<FixedJoint>();
-        objscript = grabbedObj.GetComponent<Grabbable_Object>();
-        fj.connectedBody = rb;
-        fj.anchor = transform.position;
-        fj.breakForce = 100f;
+        Debug.Log("Grab!");
         grabbedObj.layer = 6; //layer 6 is no self intersection
+        objscript = grabbedObj.GetComponent<Grabbable_Object>();
         hasgrabbed = true;
     }
 
     void DestroyFixedJoint()
     {
-        objscript.ResetLAyer();
-        Destroy(fj);
-        hasgrabbed = false;
+        if(objscript != null)
+        {
+            objscript.ResetLAyer();
+        }
         grabbedObj = null;
+        objscript = null;
+        hasgrabbed = false;
+    }
+
+    void keepObjectOnHand()
+    {
+        grabbedObj.transform.position = transform.position;
+        grabbedObj.transform.rotation = transform.rotation;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -99,14 +116,6 @@ public class Grab : MonoBehaviour
         if (other.tag == "Item")
         {
             grabbedObj = other.gameObject;
-            Debug.Log(grabbedObj);
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Item")
-        {
-            grabbedObj = null;
         }
     }
 }

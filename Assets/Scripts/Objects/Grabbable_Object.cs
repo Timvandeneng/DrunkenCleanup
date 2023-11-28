@@ -14,6 +14,8 @@ public class Grabbable_Object : MonoBehaviour
 
     Vector3 velocity = Vector3.zero;
 
+    public bool DebugChecker;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,22 +30,28 @@ public class Grabbable_Object : MonoBehaviour
         float distanceLeft = Vector3.Distance(transform.position, mngr.lefthand.position);
         float distanceRight = Vector3.Distance(transform.position, mngr.rigthhand.position);
 
-        //TODO: MAKE IT SO THAT WE CHECK IF WE AREN'T ALREADY GRABBING ONTO SOMETHING
-        //ALSO MAKE IT SO THAT IT ONLY GETS PULLED IN WHEN WE PRESSED A BUTTON
-        if (!grab[0].hasgrabbed && grab[0].leftGrab)
+        if (DebugChecker)
+        {
+            //Debug.Log(cangetsuckedleft);
+            //Debug.Log(cangetsuckedright);
+        }
+
+        //checking if we haven't already grabbed the object
+        //ITS FUCKING BROKEN MATE!
+        if (!grab[1].hasgrabbed && grab[1].leftGrab)
         {
             cangetsuckedleft = true;
         }
-        else if (grab[0].hasgrabbed || !grab[0].rightGrab)
+        else if (grab[1].hasgrabbed || !grab[1].rightGrab)
         {
             cangetsuckedleft = false;
         }
 
-        if (!grab[1].hasgrabbed && grab[1].rightGrab)
+        if (!grab[0].hasgrabbed && grab[0].rightGrab)
         {
             cangetsuckedright = true;
         }
-        else if(grab[1].hasgrabbed || !grab[1].rightGrab)
+        else if(grab[0].hasgrabbed || !grab[0].rightGrab)
         {
             cangetsuckedright = false;
         }
@@ -62,6 +70,14 @@ public class Grabbable_Object : MonoBehaviour
                 float desiredForce = mngr.AttractionForce;
                 rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredpos, ref velocity, desiredForce));
             }
+        }
+        if(distanceLeft > mngr.ActivationDistance)
+        {
+            cangetsuckedleft = false;
+        }
+        if (distanceRight > mngr.ActivationDistance)
+        {
+            cangetsuckedright = false;
         }
     }
 
