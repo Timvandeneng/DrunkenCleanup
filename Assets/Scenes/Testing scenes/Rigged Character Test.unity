@@ -379,37 +379,37 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45451948
+      value: 0.55575544
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5416752
+      value: 0.7896945
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.45451948
+      value: 0.14619239
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.5416752
+      value: -0.21481709
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 100
+      value: 109.854004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 31.369003
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 1.3289948
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
@@ -548,13 +548,13 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
-    positionSpring: 0
+    positionSpring: 2
     positionDamper: 0
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_AngularYZDrive:
     serializedVersion: 4
-    positionSpring: 0
+    positionSpring: 2
     positionDamper: 0
     maximumForce: 3.4028233e+38
     useAcceleration: 0
@@ -8588,37 +8588,37 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45451948
+      value: 0.5183529
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5416752
+      value: 0.2738704
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.45451948
+      value: 0.6034636
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.5416752
+      value: -0.540497
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 100
+      value: 110.567
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: -110.261
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -220.854
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 70f7f35970752554d89c388aee5bf64b,
         type: 3}
@@ -8757,13 +8757,13 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
-    positionSpring: 0
+    positionSpring: 2
     positionDamper: 0
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_AngularYZDrive:
     serializedVersion: 4
-    positionSpring: 0
+    positionSpring: 2
     positionDamper: 0
     maximumForce: 3.4028233e+38
     useAcceleration: 0
