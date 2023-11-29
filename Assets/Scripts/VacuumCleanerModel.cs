@@ -6,10 +6,9 @@ public class VacuumCleanerModel : MonoBehaviour
 {
 
     [Header("Transforms")]
-    public Transform Bottom, Hose, Grabpoint;
+    public Transform Bottom;
+    public Transform Hose, Grabpoint;
     public Transform Ground, IdealHosePoint;
-
-    public float x, y, z;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +17,7 @@ public class VacuumCleanerModel : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(Bottom.hasChanged || Grabpoint.hasChanged)
         {
@@ -35,10 +34,7 @@ public class VacuumCleanerModel : MonoBehaviour
         float distance = Vector3.Distance(IdealHosePoint.position, Grabpoint.position);
         Hose.localScale = new Vector3(Hose.localScale.x, Hose.localScale.y, distance);
 
-        //middle point is used to allocate the hose to a better position
-        Vector3 middlepoint = (Grabpoint.position + IdealHosePoint.position) / 2;
-        Hose.position = middlepoint;
-
+        //Hose has to lookat bottom part
         Hose.position = Grabpoint.position;
         Hose.LookAt(Bottom.position);
 

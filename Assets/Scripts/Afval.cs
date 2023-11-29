@@ -38,8 +38,13 @@ public class Afval : MonoBehaviour
         }
         else
         {
-          transform.position = Vector3.MoveTowards(transform.position, startpos, gameManager.SuctionSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, startpos, gameManager.SuctionSpeed);
 
+        }
+
+        if (Vector3.Distance(stofzuiger.transform.position, transform.position) < .01f)
+        {
+            SuckedUp = true;
         }
 
         if (SuckedUp)
@@ -50,14 +55,6 @@ public class Afval : MonoBehaviour
                 gameManager.currentSmallTrashAmount--;
                 Destroy(this.gameObject);
             }
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Stofzuiger"))
-        {
-            SuckedUp = true;
         }
     }
 }
