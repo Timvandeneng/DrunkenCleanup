@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
-    public GameObject Bord;
-    public GameObject KapotBord;
+    public GameObject Heel;
+    public GameObject Kapot;
     public BoxCollider boxCollider;
 
     public float maxFallVel = 0;
@@ -14,8 +14,8 @@ public class Breakable : MonoBehaviour
 
     void Start()
     {
-        Bord.active = true;
-        KapotBord.active = false;
+        Heel.active = true;
+        Kapot.active = false;
 
         rb = GetComponent<Rigidbody>();
     }
@@ -24,9 +24,8 @@ public class Breakable : MonoBehaviour
     {
         if(rb.velocity.magnitude >= maxFallVel)
         {
-            Bord.active = false;
-            Destroy(Bord);
-            KapotBord.active = true;
+            Heel.active = false;
+            Kapot.active = true;
         }
     }
 }
