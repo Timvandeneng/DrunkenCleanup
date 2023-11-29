@@ -10,8 +10,9 @@ public class Trash_Manager : MonoBehaviour
     public Transform boundingbox;
     public GameObject trashpile;
     public GameObject waterPile;
-    public bool willspawnTrash, willspawnPuddles;
-    public int minTrash, maxTrash, minpuddle, maxpuddle;
+    public GameObject BigTrash;
+    public bool willspawnTrash, willspawnPuddles, willspawnBigTrash;
+    public int minTrash, maxTrash, minpuddle, maxpuddle, minBigTrash, maxBigTrash;
 
     [Header("Ground Physisc")]
     public Transform ground;
@@ -24,8 +25,10 @@ public class Trash_Manager : MonoBehaviour
     public float currentSmallTrashAmount;
     float StartTrash = 0;
     float StartWater = 0;
+    float StartBigTrash = 0;
     [HideInInspector]
     public float currentWaterAmount;
+    public float currentBigTrashAmount;
 
     [Header("U.I. Elements")]
     public TextMeshProUGUI PercentText;
@@ -41,6 +44,10 @@ public class Trash_Manager : MonoBehaviour
         if (willspawnPuddles)
         {
             SpawnPuddles();
+        }
+        if (willspawnBigTrash)
+        {
+            SpawnBigTrash();
         }
     }
 
@@ -68,6 +75,18 @@ public class Trash_Manager : MonoBehaviour
         }
     }
 
+    void SpawnBigTrash()
+    {
+        StartBigTrash = Random.Range(minBigTrash, maxBigTrash);
+
+        for(int i = 0; i < StartBigTrash; i++)
+        {
+            currentBigTrashAmount = StartBigTrash;
+            Vector3 bigTrashPos = new Vector3(Random.Range(boundingbox.position.x - (boundingbox.localScale.x / 2), boundingbox.position.x + (boundingbox.localScale.x / 2)), (ground.transform.position.y + groundOffset), Random.Range(boundingbox.position.z - (boundingbox.localScale.z / 2), boundingbox.position.z + (boundingbox.localScale.z / 2)));
+            Instantiate(BigTrash, bigTrashPos, Quaternion.identity);
+        }
+    }
+
     private void Update()
     {
         //U.I.
@@ -86,6 +105,6 @@ public class Trash_Manager : MonoBehaviour
 
     float PercentageOfTrash()
     {
-        return ((100 / (StartTrash + StartWater)) * (currentSmallTrashAmount + currentWaterAmount));
+        return ((100 / (StartTrash + StartWater + StartBigTrash)) * (currentSmallTrashAmount + currentWaterAmount + currentBigTrashAmount));
     }
 }
