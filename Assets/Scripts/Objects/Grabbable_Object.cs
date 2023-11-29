@@ -14,7 +14,7 @@ public class Grabbable_Object : MonoBehaviour
 
     Vector3 velocity = Vector3.zero;
 
-    public bool DebugChecker;
+    public bool Isbeingrabbedleft, isbeingrabbedright;
 
     // Start is called before the first frame update
     void Start()
@@ -30,14 +30,7 @@ public class Grabbable_Object : MonoBehaviour
         float distanceLeft = Vector3.Distance(transform.position, mngr.lefthand.position);
         float distanceRight = Vector3.Distance(transform.position, mngr.rigthhand.position);
 
-        if (DebugChecker)
-        {
-            //Debug.Log(cangetsuckedleft);
-            //Debug.Log(cangetsuckedright);
-        }
-
         //checking if we haven't already grabbed the object
-        //ITS FUCKING BROKEN MATE!
         if (!grab[1].hasgrabbed && grab[1].leftGrab)
         {
             cangetsuckedleft = true;
@@ -60,15 +53,25 @@ public class Grabbable_Object : MonoBehaviour
         {
             if (distanceLeft < distanceRight && cangetsuckedleft)
             {
+                Isbeingrabbedleft = true;
                 Vector3 desiredpos = mngr.lefthand.position;
                 float desiredForce = mngr.AttractionForce;
                 rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredpos, ref velocity, desiredForce));
             }
-            else if(distanceRight < distanceLeft && cangetsuckedright)
+            else
             {
+                Isbeingrabbedleft = false;
+            }
+            if(distanceRight < distanceLeft && cangetsuckedright)
+            {
+                isbeingrabbedright = true;
                 Vector3 desiredpos = mngr.rigthhand.position;
                 float desiredForce = mngr.AttractionForce;
                 rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredpos, ref velocity, desiredForce));
+            }
+            else
+            {
+                isbeingrabbedright = false;
             }
         }
         if(distanceLeft > mngr.ActivationDistance)

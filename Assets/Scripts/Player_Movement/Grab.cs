@@ -88,7 +88,7 @@ public class Grab : MonoBehaviour
 
     void AddFixjointMakeParent()
     {
-        Debug.Log("Grab!");
+        //Debug.Log("Grab!");
         grabbedObj.layer = 6; //layer 6 is no self intersection
         objscript = grabbedObj.GetComponent<Grabbable_Object>();
         hasgrabbed = true;

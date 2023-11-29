@@ -11,7 +11,7 @@ public class Trash_Manager : MonoBehaviour
     public GameObject trashpile;
     public GameObject waterPile;
     public bool willspawnTrash, willspawnPuddles;
-    public int minTrash, maxTrash;
+    public int minTrash, maxTrash, minpuddle, maxpuddle;
 
     [Header("Ground Physisc")]
     public Transform ground;
@@ -23,6 +23,7 @@ public class Trash_Manager : MonoBehaviour
     [HideInInspector]
     public float currentSmallTrashAmount;
     float StartTrash = 0;
+    float StartWater = 0;
     [HideInInspector]
     public float currentWaterAmount;
 
@@ -36,6 +37,10 @@ public class Trash_Manager : MonoBehaviour
         if (willspawnTrash)
         {
             SpawnTrash();
+        }
+        if (willspawnPuddles)
+        {
+            SpawnPuddles();
         }
     }
 
@@ -53,12 +58,12 @@ public class Trash_Manager : MonoBehaviour
 
     void SpawnPuddles()
     {
-        int maxWater = Random.Range(30, 60);
+        StartWater = Random.Range(minpuddle, maxpuddle);
 
-        for (int i = 0; i < maxWater; i++)
+        for (int i = 0; i < StartWater; i++)
         {
-            currentWaterAmount = maxWater;
-            Vector3 waterPos = new Vector3(Random.Range(boundingbox.position.x - (boundingbox.localScale.x / 2), boundingbox.position.x + (boundingbox.localScale.x / 2)), (ground.transform.position.y), Random.Range(boundingbox.position.z - (boundingbox.localScale.z / 2), boundingbox.position.z + (boundingbox.localScale.z / 2)));
+            currentWaterAmount = StartWater;
+            Vector3 waterPos = new Vector3(Random.Range(boundingbox.position.x - (boundingbox.localScale.x / 2), boundingbox.position.x + (boundingbox.localScale.x / 2)), (ground.transform.position.y + groundOffset), Random.Range(boundingbox.position.z - (boundingbox.localScale.z / 2), boundingbox.position.z + (boundingbox.localScale.z / 2)));
             Instantiate(waterPile, waterPos, Quaternion.identity);
         }
     }
@@ -81,6 +86,6 @@ public class Trash_Manager : MonoBehaviour
 
     float PercentageOfTrash()
     {
-        return ((100 / StartTrash) * currentSmallTrashAmount);
+        return ((100 / (StartTrash + StartWater)) * (currentSmallTrashAmount + currentWaterAmount));
     }
 }
