@@ -11,7 +11,6 @@ public class Barf_Manager : MonoBehaviour
     float normalbarf = 0;
     bool Randomize = false;
     bool isBarfing = false;
-    bool lookattoilet = false;
     [HideInInspector]
     public bool StandingOnToilet = false;
 
@@ -29,8 +28,6 @@ public class Barf_Manager : MonoBehaviour
     public GameObject BarfPool;
     public Animator CharacterAnim;
     public Transform Staartje;
-    [HideInInspector]
-    public Transform Toilet;
 
     [Header("Special Effects")]
     public Volume volume;
@@ -85,7 +82,6 @@ public class Barf_Manager : MonoBehaviour
         {
             targetValue = Random.Range(0f, 90f);
             CharacterAnim.SetBool("Barf", false);
-            lookattoilet = false;
             targetValue = targetValue / 90;
             randomBarfPosTime = resetbarfpos;
         }
@@ -112,12 +108,6 @@ public class Barf_Manager : MonoBehaviour
         }
 
         Barfmeter.localScale = new Vector3(Barfmeter.localScale.x, currentValue, Barfmeter.localScale.z);
-
-        if (lookattoilet)
-        {
-            Staartje.LookAt(Toilet.position);
-        }
-
     }
 
     private void FixedUpdate()
@@ -148,10 +138,6 @@ public class Barf_Manager : MonoBehaviour
         if (!StandingOnToilet)
         {
             Instantiate(BarfPool, BarfLocation.position, Quaternion.Euler(Vector3.zero));
-        }
-        else
-        {
-            lookattoilet = true;
         }
         normalbarf = 0;
         isBarfing = false;

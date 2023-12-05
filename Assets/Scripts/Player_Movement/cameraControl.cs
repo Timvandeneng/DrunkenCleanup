@@ -19,6 +19,8 @@ public class cameraControl : MonoBehaviour
 
     public float X, Y, Z;
 
+    public bool LookAtToilet;
+
     // Start is called before the first frame update
     void Start()
     {

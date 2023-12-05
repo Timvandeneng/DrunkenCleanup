@@ -620,7 +620,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0038799942, y: -0.001079998, z: -0.0014400113}
+  m_ConnectedAnchor: {x: -0.00388, y: -0.0010799975, z: -0.0014400132}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1479,6 +1479,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4585575881119016230, guid: 3720486b2cdba2140b1e5d5fc4b4f0e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9996776
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585575881119016230, guid: 3720486b2cdba2140b1e5d5fc4b4f0e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.025391934
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585575881119016230, guid: 3720486b2cdba2140b1e5d5fc4b4f0e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.000000011019736
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585575881119016230, guid: 3720486b2cdba2140b1e5d5fc4b4f0e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00000006862557
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585575881119016230, guid: 3720486b2cdba2140b1e5d5fc4b4f0e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 2.91
+      objectReference: {fileID: 0}
     - target: {fileID: 5982441163614106689, guid: 3720486b2cdba2140b1e5d5fc4b4f0e2,
         type: 3}
       propertyPath: m_Layer
@@ -2070,7 +2095,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000000019044875, y: 0.014413272, z: -0.0000000011536713}
+  m_ConnectedAnchor: {x: 0.0000000029477751, y: 0.0144043425, z: 0.0003514425}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2555,6 +2580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea94d696df4cc484283121f89ef65d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raylength: 10
 --- !u!1 &256945672
 GameObject:
   m_ObjectHideFlags: 0
@@ -3037,15 +3063,16 @@ MonoBehaviour:
   willspawnTrash: 1
   willspawnPuddles: 1
   willspawnBigTrash: 0
-  minTrash: 5000
-  maxTrash: 5000
+  minTrash: 100
+  maxTrash: 100
   minpuddle: 100
   maxpuddle: 100
-  minBigTrash: 0
-  maxBigTrash: 0
+  minBigTrash: 1
+  maxBigTrash: 1
   ground: {fileID: 287957200}
   groundOffset: 0.2
   SuctionSpeed: 0.1
+  WinPercentage: 20
   currentSmallTrashAmount: 10000
   currentWaterAmount: 0
   currentBigTrashAmount: 0
@@ -3090,8 +3117,7 @@ MonoBehaviour:
   BarfPool: {fileID: 1878959025176113354, guid: 95dff9a40da98e445a56b686a1483eda,
     type: 3}
   CharacterAnim: {fileID: 856226112}
-  Staartje: {fileID: 235797595}
-  Toilet: {fileID: 0}
+  Staartje: {fileID: 1391112605}
   volume: {fileID: 1456664406}
   currentValue: 0
   currentVelocity: 0
@@ -4842,7 +4868,6 @@ GameObject:
   - component: {fileID: 690728905}
   - component: {fileID: 690728904}
   - component: {fileID: 690728903}
-  - component: {fileID: 690728907}
   m_Layer: 0
   m_Name: toilet
   m_TagString: Toilet
@@ -4869,8 +4894,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 3.6810696, z: 1}
+  m_Center: {x: 0, y: 1.3405344, z: 0}
 --- !u!23 &690728904
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4936,27 +4961,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &690728907
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 690728902}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5, y: 5, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &709153068
 GameObject:
   m_ObjectHideFlags: 0
@@ -5935,6 +5939,7 @@ MonoBehaviour:
   X: 0
   Y: 0
   Z: 0
+  LookAtToilet: 0
 --- !u!4 &1014887572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3720486b2cdba2140b1e5d5fc4b4f0e2,
@@ -12173,6 +12178,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349966530}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1391112605 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4585575881119016230, guid: 3720486b2cdba2140b1e5d5fc4b4f0e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 235797565}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1391432927
 GameObject:
   m_ObjectHideFlags: 0
@@ -13511,7 +13522,7 @@ Transform:
   m_GameObject: {fileID: 1754606472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0919, y: 0.1736, z: -0.0012}
+  m_LocalPosition: {x: 0.0933, y: 0.1736, z: -0.0012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14824,7 +14835,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0038799953, y: -0.0010799961, z: 0.0013500138}
+  m_ConnectedAnchor: {x: -0.0038800023, y: -0.0010799947, z: 0.0013499986}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0

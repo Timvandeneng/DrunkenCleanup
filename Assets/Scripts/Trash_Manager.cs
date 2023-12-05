@@ -21,6 +21,9 @@ public class Trash_Manager : MonoBehaviour
     [Header("Trash Physics")]
     public float SuctionSpeed;
 
+    [Header("Game Physics")]
+    public float WinPercentage;
+
     [HideInInspector]
     public float currentSmallTrashAmount;
     float StartTrash = 0;
@@ -101,10 +104,20 @@ public class Trash_Manager : MonoBehaviour
         byte red = (byte)redNumber;
         byte Green = (byte)GreenNumber;
         LoadingBar.color = new Color32(red, Green, 0, 255);
+
+        if(PercentageOfTrash() < WinPercentage)
+        {
+            AllTrashCleaned();
+        } 
     }
 
     float PercentageOfTrash()
     {
         return ((100 / (StartTrash + StartWater + StartBigTrash)) * (currentSmallTrashAmount + currentWaterAmount + currentBigTrashAmount));
+    }
+
+    void AllTrashCleaned()
+    {
+        Debug.Log("WE CLEANED THIS SHIZL");
     }
 }
