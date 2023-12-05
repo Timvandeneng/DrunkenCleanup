@@ -9,6 +9,7 @@ TagManager:
   - Puddle
   - Prullenbak
   - Floor
+  - Toilet
   layers:
   - Default
   - TransparentFX
