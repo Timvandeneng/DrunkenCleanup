@@ -10,6 +10,8 @@ TagManager:
   - Prullenbak
   - Floor
   - Toilet
+  - Ground
+  - BarfPool
   layers:
   - Default
   - TransparentFX

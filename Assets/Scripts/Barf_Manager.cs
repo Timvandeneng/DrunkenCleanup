@@ -19,6 +19,7 @@ public class Barf_Manager : MonoBehaviour
     public float maxTime;
     public float randomBarfPosTime;
     public float BarfRiser;
+    public float BarfYOffset;
     float resetbarfpos;
 
     [Header("Gameobjects")]
@@ -28,6 +29,8 @@ public class Barf_Manager : MonoBehaviour
     public GameObject BarfPool;
     public Animator CharacterAnim;
     public Transform Staartje;
+    [HideInInspector]
+    public Transform Ground;
 
     [Header("Special Effects")]
     public Volume volume;
@@ -137,7 +140,8 @@ public class Barf_Manager : MonoBehaviour
         Barfing.Play();
         if (!StandingOnToilet)
         {
-            Instantiate(BarfPool, BarfLocation.position, Quaternion.Euler(Vector3.zero));
+            Vector3 BarfPosition = new Vector3(BarfLocation.position.x, Ground.position.y + BarfYOffset, BarfLocation.position.z);
+            Instantiate(BarfPool, BarfPosition, Quaternion.Euler(Vector3.zero));
         }
         normalbarf = 0;
         isBarfing = false;
