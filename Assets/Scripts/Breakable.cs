@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
-    public GameObject Heel;
-    public GameObject Kapot;
-    public BoxCollider boxCollider;
+    public GameObject normal;
+    public GameObject broken;
+    BoxCollider boxCollider;
+    public bool canBreak;
 
     public float maxFallVel = 0;
 
@@ -14,18 +15,38 @@ public class Breakable : MonoBehaviour
 
     void Start()
     {
-        Heel.active = true;
-        Kapot.active = false;
+        normal.active = true;
+        broken.active = false;
 
         rb = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<BoxCollider>();
+    }
+
+    public void Update()
+    {
+        if(rb.velocity.magnitude > maxFallVel)
+        {
+            canBreak = true;
+        }
+        else
+        {
+            canBreak = false;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(rb.velocity.magnitude >= maxFallVel)
+        Debug.Log(this.gameObject.name + " collided");
+        Break();
+    }
+
+    public void Break()
+    {
+        if (canBreak)
         {
-            Heel.active = false;
-            Kapot.active = true;
+            normal.active = false;
+            broken.active = true;
+            boxCollider.enabled = false;
         }
     }
 }
