@@ -32,6 +32,8 @@ public class Trash_Manager : MonoBehaviour
     [HideInInspector]
     public float currentWaterAmount;
     public float currentBigTrashAmount;
+    public float CurrentShardsAmmount;
+    public float MaxShards;
 
     [Header("U.I. Elements")]
     public TextMeshProUGUI PercentText;

@@ -12,6 +12,7 @@ TagManager:
   - Toilet
   - Ground
   - BarfPool
+  - Broom
   layers:
   - Default
   - TransparentFX
