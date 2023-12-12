@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1505352316387435014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4337652348519218110}
+  - component: {fileID: 8421605869094376676}
+  - component: {fileID: 3950946366098400294}
+  m_Layer: 0
+  m_Name: Game_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4337652348519218110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505352316387435014}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 31.887722, y: 7.458107, z: 33.34682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8421605869094376676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505352316387435014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159fb11509ec21642a6737fa953bb710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundingbox: {fileID: 0}
+  trashpile: {fileID: 628384893806332034, guid: f1c6290668ee20645933967fbb2f74cc,
+    type: 3}
+  waterPile: {fileID: 4527933789871877681, guid: b9edf99958eede04d9b58f335a3d3699,
+    type: 3}
+  BigTrash: {fileID: 7952517819065061868, guid: d82b81166c2d5d44fa8d75c970b48937,
+    type: 3}
+  willspawnTrash: 1
+  willspawnPuddles: 1
+  willspawnBigTrash: 1
+  minTrash: 100
+  maxTrash: 100
+  minpuddle: 100
+  maxpuddle: 100
+  minBigTrash: 100
+  maxBigTrash: 100
+  ground: {fileID: 0}
+  groundOffset: 0.2
+  SuctionSpeed: 0.1
+  WinPercentage: 20
+  currentSmallTrashAmount: 10000
+  currentWaterAmount: 0
+  currentBigTrashAmount: 0
+  CurrentShardsAmmount: 0
+  MaxShards: 0
+  PercentText: {fileID: 0}
+  LoadingBar: {fileID: 0}
+  PercentageBar: {fileID: 0}
+--- !u!114 &3950946366098400294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505352316387435014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b2053a41ae9f0489b858eb5a0a2d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StandingOnToilet: 0
+  minTime: 10
+  maxTime: 10
+  randomBarfPosTime: 2
+  BarfRiser: 0.1
+  BarfYOffset: 0.1
+  Barfmeter: {fileID: 0}
+  Barfing: {fileID: 0}
+  BarfLocation: {fileID: 0}
+  BarfPool: {fileID: 1878959025176113354, guid: 95dff9a40da98e445a56b686a1483eda,
+    type: 3}
+  CharacterAnim: {fileID: 0}
+  Staartje: {fileID: 0}
+  Ground: {fileID: 0}
+  volume: {fileID: 0}
+  currentValue: 0
+  currentVelocity: 0
+  stiffness: 50
+  damping: 5
+  valueThreshold: 0.001
+  velocityThreshold: 0.001

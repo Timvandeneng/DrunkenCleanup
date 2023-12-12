@@ -31,7 +31,7 @@ public class VacuumCleanerModel : MonoBehaviour
     {
         //first see the distance between the grabpoint and the bottom part
         //this is usefull to indicate how far we want the hose to stretch
-        float distance = Vector3.Distance(IdealHosePoint.position, Grabpoint.position);
+        float distance = Vector3.Distance(IdealHosePoint.localPosition, Grabpoint.localPosition);
         Hose.localScale = new Vector3(Hose.localScale.x, Hose.localScale.y, distance);
 
         //Hose has to lookat bottom part
