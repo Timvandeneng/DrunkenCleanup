@@ -1,21 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private Camera Camera;
-    public GameObject CameraLookPos;
+    private Camera Camera;
+    public GameObject Cube;
+    public float mulitplier;
 
+
+    private void Start()
+    {
+        Camera = Camera.main;
+    }
 
     private void Update()
     {
-        Debug.Log(Camera.ScreenToWorldPoint(Input.mousePosition));
-        Vector3 MouseWorldPosition = Camera.ScreenToWorldPoint(Input.mousePosition);
-        MouseWorldPosition.z = 0;
-        CameraLookPos.transform.position = MouseWorldPosition;
+ 
+
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.x -= (Screen.width / 2);
+        mousePos.y -= (Screen.height / 2);
+        Vector3 desiredPos = new Vector3(mousePos.x * mulitplier, mousePos.y * mulitplier, Cube.transform.position.z);
+        Cube.transform.position = desiredPos;
+
+        Camera.transform.LookAt(Cube.transform.position);
+
+        Debug.Log(mousePos);
     }
 
     public void PlayGame()
