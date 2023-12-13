@@ -6,25 +6,43 @@ using TMPro;
 public class Game_Time_Manager : MonoBehaviour
 {
     [Header("Game physics")]
-    public float GameMinutes;
-    float GameTime;
+    public float TimeinMinutes;
+    [HideInInspector]
+    public float GameTime;
 
     [Header("Atttributes")]
-    public TextMeshProUGUI Minutes;
-    public TextMeshProUGUI Seconds;
-
+    public TextMeshProUGUI TimeUI;
     // Start is called before the first frame update
     void Start()
     {
-        GameTime = GameMinutes * 60;
+        GameTime = TimeinMinutes * 60;
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameTime -= Time.deltaTime;
+        if(GameTime > 0)
+        {
+            GameTime -= Time.deltaTime;
+        }
+        else
+        {
+            GameTime = 0;
+        }
+        DisplayTime();
 
-        Minutes.text = "" + GameTime;
-        Seconds.text = "" + (GameTime / 60);
+    }
+
+    void DisplayTime()
+    {
+
+        if(GameTime < 0)
+        {
+            GameTime = 0;
+        }
+        float minutes = Mathf.FloorToInt(GameTime / 60);
+        float seconds = Mathf.FloorToInt(GameTime % 60);
+
+        TimeUI.text = string.Format("{00:00}:{01:00}", minutes, seconds);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class Barf_Manager : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class Barf_Manager : MonoBehaviour
     float resetbarfpos;
 
     [Header("Gameobjects")]
-    public Transform Barfmeter;
+    public Image Barfmeter;
     public ParticleSystem Barfing;
     public Transform BarfLocation;
     public GameObject BarfPool;
@@ -54,11 +55,12 @@ public class Barf_Manager : MonoBehaviour
         normalbarf = 0;
         if (volume.profile.TryGet<ChromaticAberration>(out chrom))
         {
-            Debug.Log("we have chromatic abberation");
+            Debug.Log("chromatic abberation working");
         }
         if (volume.profile.TryGet<PaniniProjection>(out panproj))
         {
-            Debug.Log("we have pannniniiii");
+            Debug.Log("panini projection working");
+            Debug.Log("stefan als je dit leest ben je heel erg gay");
         }
     }
 
@@ -110,7 +112,7 @@ public class Barf_Manager : MonoBehaviour
             panproj.distance.value = currentValue;
         }
 
-        Barfmeter.localScale = new Vector3(Barfmeter.localScale.x, currentValue, Barfmeter.localScale.z);
+        Barfmeter.fillAmount = currentValue;
     }
 
     private void FixedUpdate()

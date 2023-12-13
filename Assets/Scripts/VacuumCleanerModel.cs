@@ -35,7 +35,7 @@ public class VacuumCleanerModel : MonoBehaviour
         Hose.localScale = new Vector3(Hose.localScale.x, Hose.localScale.y, distance);
 
         //Hose has to lookat bottom part
-        Hose.position = Grabpoint.position;
+        Hose.localPosition = Grabpoint.localPosition;
         Hose.LookAt(Bottom.position);
 
     }
