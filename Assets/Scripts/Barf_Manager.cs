@@ -37,6 +37,12 @@ public class Barf_Manager : MonoBehaviour
     public Volume volume;
     private ChromaticAberration chrom;
     private PaniniProjection panproj;
+    public RectTransform BarfMeterWhole;
+    Vector3 startpos;
+    public float TrembleSpeed;
+    float resettremble;
+    public float Maxdistance;
+    bool tremble = false;
 
     [Header("Spring mech")]
     public float currentValue;
@@ -52,6 +58,8 @@ public class Barf_Manager : MonoBehaviour
     void Start()
     {
         resetbarfpos = randomBarfPosTime;
+        resettremble = TrembleSpeed;
+        startpos = BarfMeterWhole.position;
         normalbarf = 0;
         if (volume.profile.TryGet<ChromaticAberration>(out chrom))
         {
@@ -94,6 +102,7 @@ public class Barf_Manager : MonoBehaviour
 
         if (isBarfing)
         {
+            tremble = true;
             targetValue = normalbarf;
             normalbarf += Time.deltaTime * BarfRiser;
             //VISUALS
@@ -107,12 +116,18 @@ public class Barf_Manager : MonoBehaviour
         }
         else
         {
+            tremble = false;
             idletimer -= Time.deltaTime;
             chrom.intensity.value = currentValue;
             panproj.distance.value = currentValue;
         }
 
         Barfmeter.fillAmount = currentValue;
+
+        if (tremble)
+        {
+            trembling();
+        }
     }
 
     private void FixedUpdate()
@@ -147,5 +162,16 @@ public class Barf_Manager : MonoBehaviour
         }
         normalbarf = 0;
         isBarfing = false;
+    }
+
+    void trembling()
+    {
+        TrembleSpeed -= Time.deltaTime;
+        if(TrembleSpeed < 0)
+        {
+            Vector3 Desiredpos = new Vector3(startpos.x - Random.Range(-Maxdistance, Maxdistance), startpos.y - Random.Range(-Maxdistance, Maxdistance), 0);
+            BarfMeterWhole.position = Desiredpos;
+            TrembleSpeed = resettremble;
+        }
     }
 }
