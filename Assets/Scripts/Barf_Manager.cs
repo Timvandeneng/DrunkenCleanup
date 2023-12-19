@@ -93,9 +93,9 @@ public class Barf_Manager : MonoBehaviour
 
         if (randomBarfPosTime < 0 && !isBarfing)
         {
-            targetValue = Random.Range(0f, 90f);
+            targetValue = Random.Range(0f, 70f);
             CharacterAnim.SetBool("Barf", false);
-            targetValue = targetValue / 90;
+            targetValue = targetValue / 70;
             randomBarfPosTime = resetbarfpos;
         }
 

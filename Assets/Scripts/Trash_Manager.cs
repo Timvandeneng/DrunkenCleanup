@@ -114,7 +114,7 @@ public class Trash_Manager : MonoBehaviour
 
     float PercentageOfTrash()
     {
-        return ((100 / (StartTrash + StartWater + StartBigTrash)) * (currentSmallTrashAmount + currentWaterAmount + currentBigTrashAmount));
+        return ((100 / (StartTrash + StartWater + StartBigTrash)) * (currentSmallTrashAmount + currentWaterAmount + currentBigTrashAmount + CurrentShardsAmmount));
     }
 
     void AllTrashCleaned()
