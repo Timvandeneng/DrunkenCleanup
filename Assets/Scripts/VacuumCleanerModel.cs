@@ -9,11 +9,18 @@ public class VacuumCleanerModel : MonoBehaviour
     public Transform Bottom;
     public Transform Hose, Grabpoint;
     public Transform Ground, IdealHosePoint;
+    public Transform Model;
+    public Transform IdealModelPos;
+
+    [Header("Physics")]
+    public float minDistanceModel;
+    public float modelSpeed;
+    public bool IsVacuum;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Model.position = new Vector3(IdealModelPos.position.x, Ground.position.y, IdealModelPos.position.z);
     }
 
     // Update is called once per frame
@@ -25,17 +32,22 @@ public class VacuumCleanerModel : MonoBehaviour
         }
      
         SetBottomtoGround();
+
+        if (IsVacuum)
+        {
+            SetModelToIdealPos();
+        }
     }
 
     public void ScaleBetweenPoints()
     {
         //first see the distance between the grabpoint and the bottom part
         //this is usefull to indicate how far we want the hose to stretch
-        float distance = Vector3.Distance(IdealHosePoint.localPosition, Grabpoint.localPosition);
+        float distance = Vector3.Distance(Bottom.localPosition, Grabpoint.localPosition);
         Hose.localScale = new Vector3(Hose.localScale.x, Hose.localScale.y, distance);
 
         //Hose has to lookat bottom part
-        Hose.position = Grabpoint.position;
+        Hose.localPosition = Grabpoint.localPosition;
         Hose.LookAt(Bottom.position);
 
     }
@@ -47,7 +59,21 @@ public class VacuumCleanerModel : MonoBehaviour
         Bottom.position = idealpos;
 
         //rotating the bottom to the correct position
-        Vector3 lookatpos = new Vector3(Bottom.position.x, Grabpoint.position.y, Bottom.position.z);
-        Bottom.LookAt(Bottom.position);
+        Vector3 desiredLook = new Vector3(Grabpoint.position.x, Bottom.position.y, Grabpoint.position.z);
+        Bottom.LookAt(desiredLook);
+
+    }
+
+    public void SetModelToIdealPos()
+    {
+        //rotating the model
+        Vector3 desiredLook = new Vector3(Grabpoint.position.x, Model.position.y, Grabpoint.position.z);
+        Model.LookAt(desiredLook);
+
+        if(Vector3.Distance(Model.position, Grabpoint.position) > minDistanceModel)
+        {
+            Model.position = Vector3.Lerp(Model.position, new Vector3(IdealModelPos.position.x, Ground.position.y, IdealModelPos.position.z), modelSpeed);
+            Debug.Log("GO CLEANER GO!");
+        }
     }
 }

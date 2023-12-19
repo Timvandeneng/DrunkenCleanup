@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class Barf_Manager : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class Barf_Manager : MonoBehaviour
     float resetbarfpos;
 
     [Header("Gameobjects")]
-    public Transform Barfmeter;
+    public Image Barfmeter;
     public ParticleSystem Barfing;
     public Transform BarfLocation;
     public GameObject BarfPool;
@@ -36,6 +37,12 @@ public class Barf_Manager : MonoBehaviour
     public Volume volume;
     private ChromaticAberration chrom;
     private PaniniProjection panproj;
+    public RectTransform BarfMeterWhole;
+    Vector3 startpos;
+    public float TrembleSpeed;
+    float resettremble;
+    public float Maxdistance;
+    bool tremble = false;
 
     [Header("Spring mech")]
     public float currentValue;
@@ -51,14 +58,17 @@ public class Barf_Manager : MonoBehaviour
     void Start()
     {
         resetbarfpos = randomBarfPosTime;
+        resettremble = TrembleSpeed;
+        startpos = BarfMeterWhole.position;
         normalbarf = 0;
         if (volume.profile.TryGet<ChromaticAberration>(out chrom))
         {
-            Debug.Log("we have chromatic abberation");
+            Debug.Log("chromatic abberation working");
         }
         if (volume.profile.TryGet<PaniniProjection>(out panproj))
         {
-            Debug.Log("we have pannniniiii");
+            Debug.Log("panini projection working");
+            Debug.Log("stefan als je dit leest ben je heel erg gay");
         }
     }
 
@@ -83,15 +93,16 @@ public class Barf_Manager : MonoBehaviour
 
         if (randomBarfPosTime < 0 && !isBarfing)
         {
-            targetValue = Random.Range(0f, 90f);
+            targetValue = Random.Range(0f, 70f);
             CharacterAnim.SetBool("Barf", false);
-            targetValue = targetValue / 90;
+            targetValue = targetValue / 70;
             randomBarfPosTime = resetbarfpos;
         }
 
 
         if (isBarfing)
         {
+            tremble = true;
             targetValue = normalbarf;
             normalbarf += Time.deltaTime * BarfRiser;
             //VISUALS
@@ -105,12 +116,18 @@ public class Barf_Manager : MonoBehaviour
         }
         else
         {
+            tremble = false;
             idletimer -= Time.deltaTime;
             chrom.intensity.value = currentValue;
             panproj.distance.value = currentValue;
         }
 
-        Barfmeter.localScale = new Vector3(Barfmeter.localScale.x, currentValue, Barfmeter.localScale.z);
+        Barfmeter.fillAmount = currentValue;
+
+        if (tremble)
+        {
+            trembling();
+        }
     }
 
     private void FixedUpdate()
@@ -145,5 +162,16 @@ public class Barf_Manager : MonoBehaviour
         }
         normalbarf = 0;
         isBarfing = false;
+    }
+
+    void trembling()
+    {
+        TrembleSpeed -= Time.deltaTime;
+        if(TrembleSpeed < 0)
+        {
+            Vector3 Desiredpos = new Vector3(startpos.x - Random.Range(-Maxdistance, Maxdistance), startpos.y - Random.Range(-Maxdistance, Maxdistance), 0);
+            BarfMeterWhole.position = Desiredpos;
+            TrembleSpeed = resettremble;
+        }
     }
 }

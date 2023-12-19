@@ -12,6 +12,8 @@ public class Afval : MonoBehaviour
     public float shrinkSpeed = 2;
     public float destroySize = 0.1f;
 
+    public SpriteRenderer sprite;
+
     Trash_Manager gameManager;
 
     Vector3 startpos;
@@ -22,6 +24,12 @@ public class Afval : MonoBehaviour
         stofzuiger = GameObject.FindGameObjectWithTag("Stofzuiger");
         gameManager = GameObject.FindFirstObjectByType<Trash_Manager>();
         startpos = transform.position;
+
+        float newcolor = Random.Range(0.3f, 0.7f);
+        sprite.color = new Color(newcolor, newcolor, newcolor, 1);
+
+        float newscale = Random.Range(0.25f, 0.7f);
+        transform.localScale = new Vector3(newscale, newscale, newscale);
     }
 
 

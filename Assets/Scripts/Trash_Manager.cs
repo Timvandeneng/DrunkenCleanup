@@ -37,8 +37,7 @@ public class Trash_Manager : MonoBehaviour
 
     [Header("U.I. Elements")]
     public TextMeshProUGUI PercentText;
-    public RawImage LoadingBar;
-    public GameObject PercentageBar;
+    public Image LoadingBar;
 
     void Start()
     {
@@ -99,7 +98,7 @@ public class Trash_Manager : MonoBehaviour
         int percent = (int)PercentageOfTrash();
         PercentText.text = (100 - percent + "%");
 
-        PercentageBar.transform.localScale = new Vector3((100 - PercentageOfTrash()) / 100, PercentageBar.transform.localScale.y, PercentageBar.transform.localScale.z);
+        LoadingBar.fillAmount = (100 - PercentageOfTrash()) / 100;
 
         int redNumber = percent * 2;
         int GreenNumber = 100 - (percent);
@@ -115,7 +114,7 @@ public class Trash_Manager : MonoBehaviour
 
     float PercentageOfTrash()
     {
-        return ((100 / (StartTrash + StartWater + StartBigTrash)) * (currentSmallTrashAmount + currentWaterAmount + currentBigTrashAmount));
+        return ((100 / (StartTrash + StartWater + StartBigTrash)) * (currentSmallTrashAmount + currentWaterAmount + currentBigTrashAmount + CurrentShardsAmmount));
     }
 
     void AllTrashCleaned()
