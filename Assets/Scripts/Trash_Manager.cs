@@ -7,7 +7,7 @@ using TMPro;
 public class Trash_Manager : MonoBehaviour
 {
     [Header("SpawnPhysics")]
-    public Transform boundingbox;
+    public Transform[] boundingbox;
     public GameObject trashpile;
     public GameObject waterPile;
     public GameObject BigTrash;
@@ -20,9 +20,14 @@ public class Trash_Manager : MonoBehaviour
 
     [Header("Trash Physics")]
     public float SuctionSpeed;
+    public float Maxpuddlesize;
+    public float MinPuddleSize;
+    GameObject curWater;
 
     [Header("Game Physics")]
     public float WinPercentage;
+    public GameObject WinScreen;
+    public GameObject NormalUI;
 
     [HideInInspector]
     public float currentSmallTrashAmount;
@@ -62,7 +67,8 @@ public class Trash_Manager : MonoBehaviour
             for (int i = 0; i < StartTrash; i++)
             {
                 currentSmallTrashAmount = StartTrash;
-                Vector3 trashPos = new Vector3(Random.Range(boundingbox.position.x - (boundingbox.localScale.x / 2), boundingbox.position.x + (boundingbox.localScale.x / 2)), (ground.transform.position.y + groundOffset), Random.Range(boundingbox.position.z - (boundingbox.localScale.z / 2), boundingbox.position.z + (boundingbox.localScale.z / 2)));
+                int WhichBox = Random.Range(0, boundingbox.Length);
+                Vector3 trashPos = new Vector3(Random.Range(boundingbox[WhichBox].position.x - (boundingbox[WhichBox].localScale.x / 2), boundingbox[WhichBox].position.x + (boundingbox[WhichBox].localScale.x / 2)), (ground.transform.position.y + groundOffset), Random.Range(boundingbox[WhichBox].position.z - (boundingbox[WhichBox].localScale.z / 2), boundingbox[WhichBox].position.z + (boundingbox[WhichBox].localScale.z / 2)));
                 Instantiate(trashpile, trashPos, Quaternion.identity);
             }
     }
@@ -74,8 +80,11 @@ public class Trash_Manager : MonoBehaviour
         for (int i = 0; i < StartWater; i++)
         {
             currentWaterAmount = StartWater;
-            Vector3 waterPos = new Vector3(Random.Range(boundingbox.position.x - (boundingbox.localScale.x / 2), boundingbox.position.x + (boundingbox.localScale.x / 2)), (ground.transform.position.y + groundOffset), Random.Range(boundingbox.position.z - (boundingbox.localScale.z / 2), boundingbox.position.z + (boundingbox.localScale.z / 2)));
-            Instantiate(waterPile, waterPos, Quaternion.identity);
+            int WhichBox = Random.Range(0, boundingbox.Length);
+            Vector3 waterPos = new Vector3(Random.Range(boundingbox[WhichBox].position.x - (boundingbox[WhichBox].localScale.x / 2), boundingbox[WhichBox].position.x + (boundingbox[WhichBox].localScale.x / 2)), (ground.transform.position.y + groundOffset), Random.Range(boundingbox[WhichBox].position.z - (boundingbox[WhichBox].localScale.z / 2), boundingbox[WhichBox].position.z + (boundingbox[WhichBox].localScale.z / 2)));
+            curWater = Instantiate(waterPile, waterPos, Quaternion.identity);
+            float scale = Random.Range(1f, 2f);
+            curWater.transform.localScale = new Vector3(scale, 1, scale);
         }
     }
 
@@ -86,7 +95,8 @@ public class Trash_Manager : MonoBehaviour
         for(int i = 0; i < StartBigTrash; i++)
         {
             currentBigTrashAmount = StartBigTrash;
-            Vector3 bigTrashPos = new Vector3(Random.Range(boundingbox.position.x - (boundingbox.localScale.x / 2), boundingbox.position.x + (boundingbox.localScale.x / 2)), (ground.transform.position.y + groundOffset), Random.Range(boundingbox.position.z - (boundingbox.localScale.z / 2), boundingbox.position.z + (boundingbox.localScale.z / 2)));
+            int WhichBox = Random.Range(0, boundingbox.Length);
+            Vector3 bigTrashPos = new Vector3(Random.Range(boundingbox[WhichBox].position.x - (boundingbox[WhichBox].localScale.x / 2), boundingbox[WhichBox].position.x + (boundingbox[WhichBox].localScale.x / 2)), (ground.transform.position.y + groundOffset), Random.Range(boundingbox[WhichBox].position.z - (boundingbox[WhichBox].localScale.z / 2), boundingbox[WhichBox].position.z + (boundingbox[WhichBox].localScale.z / 2)));
             Instantiate(BigTrash, bigTrashPos, Quaternion.identity);
         }
     }
@@ -119,6 +129,7 @@ public class Trash_Manager : MonoBehaviour
 
     void AllTrashCleaned()
     {
-        Debug.Log("WE CLEANED THIS SHIZL");
+        NormalUI.SetActive(false);
+        WinScreen.SetActive(true);
     }
 }

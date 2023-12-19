@@ -242,6 +242,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: propjes_papier_
       objectReference: {fileID: 0}
+    - target: {fileID: 2786534777698132407, guid: be4ca730428b0b6469cfef7d9b32fb7b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5267a7ad25439804f96072f29414c39e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4767400413853537203, guid: be4ca730428b0b6469cfef7d9b32fb7b, type: 3}

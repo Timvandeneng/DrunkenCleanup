@@ -38,7 +38,7 @@ public class player_controller : MonoBehaviour
         hipsrb.AddForce(ForcePosition.right * DesiredXvel);
 
         //making sure our player stands still when no keys are pressed down(no sliding)
-        Vector3 restVelocity = new Vector3(0, hipsrb.velocity.y * 0.5f, 0);
+        Vector3 restVelocity = new Vector3(0, hipsrb.velocity.y * 1f, 0);
         hipsrb.velocity = DesiredZvel == 0 && DesiredXvel == 0 ? restVelocity : hipsrb.velocity;
 
 

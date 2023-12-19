@@ -37,7 +37,7 @@ MonoBehaviour:
   height: 20.71
   verticalOffset: -5.9
   distance: 250
-  distanceFallOff: 0.941
+  distanceFallOff: 0.93
   maxDistance: 202.78
   maxDistanceFallOff: 1
   terrainFit: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   terrainFogHeight: 25
   terrainFogMinAltitude: 0
   terrainFogMaxAltitude: 150
-  albedo: {r: 1, g: 1, b: 1, a: 0.295}
+  albedo: {r: 1, g: 1, b: 1, a: 0.632}
   enableDepthGradient: 0
   depthGradient:
     serializedVersion: 2
@@ -113,8 +113,8 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   brightness: 1
-  deepObscurance: 0.94
-  specularColor: {r: 1, g: 0.8930817, b: 0.8930817, a: 1}
+  deepObscurance: 0
+  specularColor: {r: 1, g: 1, b: 1, a: 1}
   specularThreshold: 0
   specularIntensity: 0
   turbulence: 0
