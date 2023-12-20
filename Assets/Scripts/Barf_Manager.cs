@@ -63,12 +63,9 @@ public class Barf_Manager : MonoBehaviour
         normalbarf = 0;
         if (volume.profile.TryGet<ChromaticAberration>(out chrom))
         {
-            Debug.Log("chromatic abberation working");
         }
         if (volume.profile.TryGet<PaniniProjection>(out panproj))
         {
-            Debug.Log("panini projection working");
-            Debug.Log("stefan als je dit leest ben je heel erg gay");
         }
     }
 

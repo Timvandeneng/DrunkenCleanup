@@ -40,12 +40,12 @@ Material:
     m_Floats:
     - _AlphaCutout: 0.01
     - _AppendMoreFins: 0
-    - _Density: 2
+    - _Density: 0.1
     - _DrawOrigPolygon: 1
     - _FaceNormalFactor: 0.069
     - _FaceViewProdThresh: 1
     - _FinJointNum: 2
-    - _FinLength: 0.3
+    - _FinLength: 0.289
     - _Metallic: 0
     - _NormalFactor: 0.196
     - _NormalScale: 0.489
@@ -59,7 +59,7 @@ Material:
     - _TessMaxDist: 50
     - _TessMinDist: 10
     m_Colors:
-    - _AmbientColor: {r: 0.037320513, g: 0.09325546, b: 0.16037738, a: 1}
+    - _AmbientColor: {r: 0, g: 0.4056604, b: 0.012395537, a: 1}
     - _BaseColor: {r: 0.31509617, g: 0.5377358, b: 0.21644709, a: 1}
     - _BaseMove: {r: 0, g: -0.4, b: 0, a: 3}
     - _WindFreq: {r: 1, g: 0.4, b: 0.2, a: 1}

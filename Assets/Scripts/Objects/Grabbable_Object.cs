@@ -31,7 +31,7 @@ public class Grabbable_Object : MonoBehaviour
         float distanceRight = Vector3.Distance(transform.position, mngr.rigthhand.position);
 
         //checking if we haven't already grabbed the object
-        if (!grab[1].hasgrabbed && grab[1].leftGrab)
+        if (!grab[1].hasgrabbed && grab[1].leftGrab && !cangetsuckedright)
         {
             cangetsuckedleft = true;
         }
@@ -40,7 +40,7 @@ public class Grabbable_Object : MonoBehaviour
             cangetsuckedleft = false;
         }
 
-        if (!grab[0].hasgrabbed && grab[0].rightGrab)
+        if (!grab[0].hasgrabbed && grab[0].rightGrab && !cangetsuckedleft)
         {
             cangetsuckedright = true;
         }
@@ -51,27 +51,31 @@ public class Grabbable_Object : MonoBehaviour
 
         if (distanceLeft < mngr.ActivationDistance || distanceRight < mngr.ActivationDistance)
         {
-            if (distanceLeft < distanceRight && cangetsuckedleft)
+            if (cangetsuckedleft)
             {
                 Isbeingrabbedleft = true;
                 Vector3 desiredpos = mngr.lefthand.position;
                 float desiredForce = mngr.AttractionForce;
-                rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredpos, ref velocity, desiredForce));
+                rb.position = desiredpos;
+                rb.isKinematic = true;
             }
             else
             {
                 Isbeingrabbedleft = false;
+                rb.isKinematic = false;
             }
-            if(distanceRight < distanceLeft && cangetsuckedright)
+            if(cangetsuckedright)
             {
                 isbeingrabbedright = true;
                 Vector3 desiredpos = mngr.rigthhand.position;
                 float desiredForce = mngr.AttractionForce;
-                rb.MovePosition(Vector3.SmoothDamp(transform.position, desiredpos, ref velocity, desiredForce));
+                rb.position = desiredpos;
+                rb.isKinematic = true;
             }
             else
             {
                 isbeingrabbedright = false;
+                rb.isKinematic = false;
             }
         }
         if(distanceLeft > mngr.ActivationDistance)

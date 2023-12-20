@@ -25,18 +25,21 @@ public class Afval : MonoBehaviour
         gameManager = GameObject.FindFirstObjectByType<Trash_Manager>();
         startpos = transform.position;
 
-        float newcolor = Random.Range(0.3f, 0.7f);
+        float newcolor = Random.Range(0.7f, 1f);
         sprite.color = new Color(newcolor, newcolor, newcolor, 1);
 
-        float newscale = Random.Range(0.25f, 0.7f);
+        float newscale = Random.Range(0.25f, 1f);
         transform.localScale = new Vector3(newscale, newscale, newscale);
+
+        float Yrot = Random.Range(0, 360);
+        transform.localRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, Yrot, transform.rotation.eulerAngles.z);
     }
 
 
     void LateUpdate()
     {
         //billboard
-        transform.LookAt(Camera.main.transform.position);
+        //transform.LookAt(Camera.main.transform.position);
 
         Vector3 desiredPos = stofzuiger.transform.position - transform.position;
         if (Vector3.Distance(stofzuiger.transform.position, transform.position) < activationDistance)
