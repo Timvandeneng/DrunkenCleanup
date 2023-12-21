@@ -15,8 +15,8 @@ public class Breakable : MonoBehaviour
 
     void Start()
     {
-        normal.active = true;
-        broken.active = false;
+        normal.SetActive(true);
+        broken.SetActive(false);
 
         rb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
@@ -44,8 +44,8 @@ public class Breakable : MonoBehaviour
     {
         if (canBreak)
         {
-            normal.active = false;
-            broken.active = true;
+            normal.SetActive(false);
+            broken.SetActive(true);
             boxCollider.enabled = false;
         }
     }

@@ -13,6 +13,8 @@ TagManager:
   - Ground
   - BarfPool
   - Broom
+  - Righthand
+  - Lefthand
   layers:
   - Default
   - TransparentFX

@@ -4,88 +4,53 @@ using UnityEngine;
 
 public class Grabbable_Object : MonoBehaviour
 {
+    public Transform[] Lefthand;
+    public Transform[] Righthand;
 
-    Grabbable_Object_Manager mngr;
-    Rigidbody rb;
-    Grab[] grab;
-
-    bool cangetsuckedleft;
-    bool cangetsuckedright;
-
-    Vector3 velocity = Vector3.zero;
-
-    public bool Isbeingrabbedleft, isbeingrabbedright;
+    public Grab[] LeftScripts;
+    public Grab[] RightScripts;
 
     // Start is called before the first frame update
     void Start()
     {
-        mngr = GameObject.FindFirstObjectByType<Grabbable_Object_Manager>();
-        rb = GetComponent<Rigidbody>();
-        grab = FindObjectsOfType<Grab>();
+        //first we set the size of the array to the ammount of hands there are in the scene
+        //this is handy for multiplayer later on
+        GameObject[] Lobj = GameObject.FindGameObjectsWithTag("Lefthand");
+        System.Array.Resize(ref Lefthand, Lobj.Length);
+        for (int i = 0; i < Lobj.Length; i++)
+        {
+            Lefthand[i] = Lobj[i].transform;
+        }
+        //for(int i = 0; i < Lefthand.Length; i++)
+       // {
+         //   LeftScripts[i] = Lefthand[i].gameObject.GetComponent<Grab>();
+     //   }
+        //right hand
+        GameObject[] Robj = GameObject.FindGameObjectsWithTag("Righthand");
+        System.Array.Resize(ref Righthand, Robj.Length);
+        for (int i = 0; i < Robj.Length; i++)
+        {
+            Righthand[i] = Robj[i].transform;
+        }
+        for(int i = 0; i < Righthand.Length; i++)
+        {
+            RightScripts[i] = Righthand[i].gameObject.GetComponent<Grab>();
+        }
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        float distanceLeft = Vector3.Distance(transform.position, mngr.lefthand.position);
-        float distanceRight = Vector3.Distance(transform.position, mngr.rigthhand.position);
-
-        //checking if we haven't already grabbed the object
-        if (!grab[1].hasgrabbed && grab[1].leftGrab && !cangetsuckedright)
-        {
-            cangetsuckedleft = true;
-        }
-        else if (grab[1].hasgrabbed || !grab[1].rightGrab)
-        {
-            cangetsuckedleft = false;
-        }
-
-        if (!grab[0].hasgrabbed && grab[0].rightGrab && !cangetsuckedleft)
-        {
-            cangetsuckedright = true;
-        }
-        else if(grab[0].hasgrabbed || !grab[0].rightGrab)
-        {
-            cangetsuckedright = false;
-        }
-
-        if (distanceLeft < mngr.ActivationDistance || distanceRight < mngr.ActivationDistance)
-        {
-            if (cangetsuckedleft)
-            {
-                Isbeingrabbedleft = true;
-                Vector3 desiredpos = mngr.lefthand.position;
-                float desiredForce = mngr.AttractionForce;
-                rb.position = desiredpos;
-                rb.isKinematic = true;
-            }
-            else
-            {
-                Isbeingrabbedleft = false;
-                rb.isKinematic = false;
-            }
-            if(cangetsuckedright)
-            {
-                isbeingrabbedright = true;
-                Vector3 desiredpos = mngr.rigthhand.position;
-                float desiredForce = mngr.AttractionForce;
-                rb.position = desiredpos;
-                rb.isKinematic = true;
-            }
-            else
-            {
-                isbeingrabbedright = false;
-                rb.isKinematic = false;
-            }
-        }
-        if(distanceLeft > mngr.ActivationDistance)
-        {
-            cangetsuckedleft = false;
-        }
-        if (distanceRight > mngr.ActivationDistance)
-        {
-            cangetsuckedright = false;
-        }
+      for(int i = 0; i < Lefthand.Length; i++)
+      {
+          if(Vector3.Distance(transform.position, Lefthand[i].position) < LeftScripts[i].ActivationDistance)
+          {
+                if (Input.GetKey(KeyCode.Mouse0))
+                {
+                    transform.position = Lefthand[i].position;
+                }
+          }
+      }
     }
 
     public void ResetLAyer()
