@@ -10,46 +10,40 @@ public class PlayerSettings : MonoBehaviour
 {
     public RenderPipelineAsset[] qualityLevels;
     public TMP_Dropdown QualityDropdown;
-
     public AudioMixer volMixer;
-    // fullscreen option
     public Toggle FullscreenToggle;
-
     public Slider volSlider;
 
-    // Resolution dropdown settings
     Resolution[] resolutions;
     public TMP_Dropdown ResolutionDropdown;
     const string resName = "resolutionOption";
 
-    private int screenInt;
-    private bool isFullScreen = false;
+    private bool isPaused = false;
+
+    public GameObject volumetrics;
+
+    //FPS configures
+    public TextMeshProUGUI FPSDisplay;
+    private float pollingTime = 0.5f;
+    public float time;
+    public int frameCount;
 
     private void Awake()
     {
-        screenInt = PlayerPrefs.GetInt("fullscreenstate");
-
-        if (screenInt == 1)
-        {
-            isFullScreen = true;
-            FullscreenToggle.isOn = true;
-        }
-        else
-        {
-            isFullScreen = false;
-            FullscreenToggle.isOn = false;
-        }
+        FullscreenToggle.onValueChanged.AddListener(OnFullscreenToggleValueChanged);
 
         ResolutionDropdown.onValueChanged.AddListener(new UnityAction<int>(index =>
         {
-            PlayerPrefs.SetInt(resName, ResolutionDropdown.value);
+            if (!isPaused)
+                SetResolution(index);
         }));
     }
 
     void Start()
     {
-        QualityDropdown.value = QualitySettings.GetQualityLevel();
+        FPSDisplay.enabled = false;
 
+        QualityDropdown.value = PlayerPrefs.GetInt("QualityLevel", QualitySettings.GetQualityLevel());
         volSlider.value = PlayerPrefs.GetFloat("AVolume", 1f);
         volMixer.SetFloat("volume", PlayerPrefs.GetFloat("AVolume"));
 
@@ -65,7 +59,8 @@ public class PlayerSettings : MonoBehaviour
             string option = resolutions[i].width + "x" + resolutions[i].height;
             options.Add(option);
 
-            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.currentResolution.width &&
+                resolutions[i].height == Screen.currentResolution.height)
             {
                 currentResolutionIndex = i;
             }
@@ -76,25 +71,42 @@ public class PlayerSettings : MonoBehaviour
         ResolutionDropdown.RefreshShownValue();
     }
 
+    public void Update()
+    {
+        if (!isPaused)
+        {
+            time += Time.deltaTime;
+            frameCount++;
+
+            if (time >= pollingTime)
+            {
+                int frameRate = Mathf.RoundToInt(frameCount / time);
+                FPSDisplay.text = "FPS: " + frameRate.ToString();
+
+                time = 0f;
+                frameCount = 0;
+            }
+        }
+    }
+
+
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        PlayerPrefs.SetInt(resName, resolutionIndex);
+    }
+
+    public void OnFullscreenToggleValueChanged(bool value)
+    {
+        if (!isPaused)
+            SetFullScreen(value);
     }
 
     public void SetFullScreen(bool fullScreen)
     {
         Screen.fullScreen = fullScreen;
-
-        if(isFullScreen == false)
-        {
-            PlayerPrefs.SetInt("fullscreenstate", 0);
-        }
-        else
-        {
-            isFullScreen = true;
-            PlayerPrefs.SetInt("fullscreenstate", 1);
-        }
+        PlayerPrefs.SetInt("fullscreenstate", fullScreen ? 1 : 0);
     }
 
     public void ChangeQuality(int index)
@@ -102,11 +114,30 @@ public class PlayerSettings : MonoBehaviour
         QualitySettings.SetQualityLevel(index);
         QualitySettings.renderPipeline = qualityLevels[index];
         PlayerPrefs.SetInt("QualityLevel", index);
+        if (index < 2)
+        {
+            volumetrics.active = false;
+        }
+        else
+        {
+            volumetrics.active = true;
+        }
     }
 
     public void ChangeVolume(float volume)
     {
         PlayerPrefs.SetFloat("AVolume", volume);
-        volMixer.SetFloat("volume", PlayerPrefs.GetFloat("AVoume"));
+        volMixer.SetFloat("volume", PlayerPrefs.GetFloat("AVolume"));
     }
+
+    public void SetPauseState(bool paused)
+    {
+        isPaused = paused;
+    }
+
+    public void DisplayFPS(bool Enabled)
+    {
+        FPSDisplay.enabled = !isPaused && Enabled;
+    }
+
 }
