@@ -8,6 +8,7 @@ public class Trash_Manager : MonoBehaviour
 {
     [Header("SpawnPhysics")]
     public Transform[] boundingbox;
+    public Transform[] Parents; //This is a WRONG way of doing things!! i'm doing this because of a deadline :'(
     public GameObject trashpile;
     public GameObject waterPile;
     public GameObject BigTrash;
@@ -22,7 +23,6 @@ public class Trash_Manager : MonoBehaviour
     public float SuctionSpeed;
     public float Maxpuddlesize;
     public float MinPuddleSize;
-    GameObject curWater;
 
     [Header("Game Physics")]
     public float WinPercentage;
@@ -68,8 +68,9 @@ public class Trash_Manager : MonoBehaviour
             {
                 currentSmallTrashAmount = StartTrash;
                 int WhichBox = Random.Range(0, boundingbox.Length);
-                Vector3 trashPos = new Vector3(Random.Range(boundingbox[WhichBox].position.x - (boundingbox[WhichBox].localScale.x / 2), boundingbox[WhichBox].position.x + (boundingbox[WhichBox].localScale.x / 2)), (ground.transform.position.y + groundOffset), Random.Range(boundingbox[WhichBox].position.z - (boundingbox[WhichBox].localScale.z / 2), boundingbox[WhichBox].position.z + (boundingbox[WhichBox].localScale.z / 2)));
-                Instantiate(trashpile, trashPos, Quaternion.identity);
+                Vector3 trashPos = new Vector3(Random.Range(boundingbox[WhichBox].position.x - (boundingbox[WhichBox].localScale.x / 2), boundingbox[WhichBox].position.x + (boundingbox[WhichBox].localScale.x / 2)), (boundingbox[WhichBox].position.y), Random.Range(boundingbox[WhichBox].position.z - (boundingbox[WhichBox].localScale.z / 2), boundingbox[WhichBox].position.z + (boundingbox[WhichBox].localScale.z / 2)));
+                GameObject instance = Instantiate(trashpile, trashPos, Quaternion.identity);
+                instance.transform.parent = Parents[WhichBox];
             }
     }
 
@@ -81,10 +82,11 @@ public class Trash_Manager : MonoBehaviour
         {
             currentWaterAmount = StartWater;
             int WhichBox = Random.Range(0, boundingbox.Length);
-            Vector3 waterPos = new Vector3(Random.Range(boundingbox[WhichBox].position.x - (boundingbox[WhichBox].localScale.x / 2), boundingbox[WhichBox].position.x + (boundingbox[WhichBox].localScale.x / 2)), (ground.transform.position.y + groundOffset), Random.Range(boundingbox[WhichBox].position.z - (boundingbox[WhichBox].localScale.z / 2), boundingbox[WhichBox].position.z + (boundingbox[WhichBox].localScale.z / 2)));
-            curWater = Instantiate(waterPile, waterPos, Quaternion.identity);
+            Vector3 waterPos = new Vector3(Random.Range(boundingbox[WhichBox].position.x - (boundingbox[WhichBox].localScale.x / 2), boundingbox[WhichBox].position.x + (boundingbox[WhichBox].localScale.x / 2)), (boundingbox[WhichBox].position.y), Random.Range(boundingbox[WhichBox].position.z - (boundingbox[WhichBox].localScale.z / 2), boundingbox[WhichBox].position.z + (boundingbox[WhichBox].localScale.z / 2)));
+            GameObject curWater = Instantiate(waterPile, waterPos, Quaternion.identity);
             float scale = Random.Range(1f, 2f);
             curWater.transform.localScale = new Vector3(scale, 1, scale);
+            curWater.transform.parent = Parents[WhichBox];
         }
     }
 
@@ -96,8 +98,9 @@ public class Trash_Manager : MonoBehaviour
         {
             currentBigTrashAmount = StartBigTrash;
             int WhichBox = Random.Range(0, boundingbox.Length);
-            Vector3 bigTrashPos = new Vector3(Random.Range(boundingbox[WhichBox].position.x - (boundingbox[WhichBox].localScale.x / 2), boundingbox[WhichBox].position.x + (boundingbox[WhichBox].localScale.x / 2)), (ground.transform.position.y + groundOffset), Random.Range(boundingbox[WhichBox].position.z - (boundingbox[WhichBox].localScale.z / 2), boundingbox[WhichBox].position.z + (boundingbox[WhichBox].localScale.z / 2)));
-            Instantiate(BigTrash, bigTrashPos, Quaternion.identity);
+            Vector3 bigTrashPos = new Vector3(Random.Range(boundingbox[WhichBox].position.x - (boundingbox[WhichBox].localScale.x / 2), boundingbox[WhichBox].position.x + (boundingbox[WhichBox].localScale.x / 2)), (boundingbox[WhichBox].position.y + groundOffset), Random.Range(boundingbox[WhichBox].position.z - (boundingbox[WhichBox].localScale.z / 2), boundingbox[WhichBox].position.z + (boundingbox[WhichBox].localScale.z / 2)));
+            GameObject instance = Instantiate(BigTrash, bigTrashPos, Quaternion.identity);
+            instance.transform.parent = Parents[WhichBox];
         }
     }
 

@@ -73,6 +73,9 @@ public class VacuumCleanerModel : MonoBehaviour
         if(Vector3.Distance(Model.position, Grabpoint.position) > minDistanceModel)
         {
             float multiplier = Vector3.Distance(Model.position, Grabpoint.position) * 0.5f;
+            //Vector3 DesiredPos = new Vector3(IdealModelPos.position.x, Ground.position.y, IdealModelPos.position.z);
+            //Vector3 Force = DesiredPos - Model.position;
+            //Model.GetComponent<Rigidbody>().AddForce(Force);
             Model.position = Vector3.Lerp(Model.position, new Vector3(IdealModelPos.position.x, Ground.position.y, IdealModelPos.position.z), modelSpeed * multiplier);
             Debug.Log("GO CLEANER GO!");
         }

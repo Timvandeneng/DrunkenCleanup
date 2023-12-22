@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1698593383031272324}
   - component: {fileID: 541804773806224878}
+  - component: {fileID: 1690698266284934830}
   m_Layer: 0
   m_Name: WaterPuddle
   m_TagString: Puddle
@@ -138,3 +139,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.94, y: 1, z: 2.89}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1690698266284934830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4527933789871877681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0f0699834c2cc4a9e1f2a0359a2f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puddlehealth: 5
+  Masks: []

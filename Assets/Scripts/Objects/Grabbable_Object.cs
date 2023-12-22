@@ -9,7 +9,6 @@ public class Grabbable_Object : MonoBehaviour
 
     bool leftGrab;
     bool rightGrab;
-
     int hand;
 
     Rigidbody rb;
@@ -54,7 +53,7 @@ public class Grabbable_Object : MonoBehaviour
             if (Vector3.Distance(transform.position, Lefthand[i].position) < Lefthand[i].gameObject.GetComponent<Grab>().ActivationDistance)
             {
                 Debug.Log("can be grabbed");
-                if (Lefthand[i].gameObject.GetComponent<Grab>().Pressing && !Lefthand[i].gameObject.GetComponent<Grab>().Isgrabbing)
+                if (Lefthand[i].gameObject.GetComponent<Grab>().Pressing && !Lefthand[i].gameObject.GetComponent<Grab>().Isgrabbing && !rightGrab)
                 {
                     Debug.Log("Should be grabbed");
                     leftGrab = true;
@@ -80,7 +79,7 @@ public class Grabbable_Object : MonoBehaviour
             if (Vector3.Distance(transform.position, Righthand[i].position) < Righthand[i].gameObject.GetComponent<Grab>().ActivationDistance)
             {
                 Debug.Log("can be grabbed");
-                if (Righthand[i].gameObject.GetComponent<Grab>().Pressing && !Righthand[i].gameObject.GetComponent<Grab>().Isgrabbing)
+                if (Righthand[i].gameObject.GetComponent<Grab>().Pressing && !Righthand[i].gameObject.GetComponent<Grab>().Isgrabbing && !leftGrab)
                 {
                     Debug.Log("Should be grabbed");
                     rightGrab = true;

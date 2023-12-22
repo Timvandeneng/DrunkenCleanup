@@ -35,7 +35,7 @@ public class player_controller : MonoBehaviour
         float DesiredZvel = Input.GetAxis("Vertical") * speed;
         float DesiredXvel = Input.GetAxis("Horizontal") * strafeSpeed;
         hipsrb.AddForce(-ForcePosition.right * DesiredZvel);
-        hipsrb.AddForce(ForcePosition.right * DesiredXvel);
+        hipsrb.AddForce(ForcePosition.up * DesiredXvel);
 
         //making sure our player stands still when no keys are pressed down(no sliding)
         Vector3 restVelocity = new Vector3(0, hipsrb.velocity.y * 1f, 0);

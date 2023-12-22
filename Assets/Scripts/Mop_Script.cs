@@ -14,6 +14,8 @@ public class Mop_Script : MonoBehaviour
     public float spawnheight;
     Vector3 lastpos;
 
+    Water_Pudle pudlescrpt;
+
     Barf_Puddle Barf;
     // Start is called before the first frame update
     void Start()
@@ -25,11 +27,13 @@ public class Mop_Script : MonoBehaviour
     {
         if (other.CompareTag("Puddle"))
         {
+            pudlescrpt = other.GetComponent<Water_Pudle>();
             //when we are X distance from last pos we spawn sprite mask
             if(Vector3.Distance(transform.position, lastpos) > spawnDistance)
             {
                 Vector3 desiredRot = new Vector3(90, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-                Instantiate(spriteMask, transform.position + new Vector3(0, Ground.position.y + spawnheight, 0), Quaternion.Euler(desiredRot));
+                pudlescrpt.Masks.Add(Instantiate(spriteMask, transform.position + new Vector3(0, Ground.position.y + spawnheight, 0), Quaternion.Euler(desiredRot)));
+                pudlescrpt.puddlehealth--;
                 lastpos = transform.position;
             }
 
