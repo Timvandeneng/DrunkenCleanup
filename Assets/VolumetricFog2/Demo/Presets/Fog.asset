@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612e70f49e5124da0a95111a57250300, type: 3}
   m_Name: Fog
   m_EditorClassIdentifier: 
-  raymarchQuality: 5
+  raymarchQuality: 2
   raymarchMinStep: 0.2
   jittering: 1
   dithering: 0.87
@@ -28,7 +28,7 @@ MonoBehaviour:
   useDetailNoise: 0
   detailTexture: {fileID: 11700000, guid: 950add8d241c6479bbab1f10e1035d60, type: 2}
   detailScale: 10
-  detailStrength: 0.119
+  detailStrength: 0
   detailOffset: -0.5
   density: 1
   shape: 0
