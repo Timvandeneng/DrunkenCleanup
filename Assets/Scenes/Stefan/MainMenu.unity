@@ -1939,44 +1939,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2732127092659769865, guid: 2ebebc9b93341e74792ebf1f56b79b0d, type: 3}
---- !u!84 &101301493
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 256
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 0
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1 &103822158
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,7 +2205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00003477635}
+  m_AnchoredPosition: {x: 0, y: 0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &107327571
@@ -3397,7 +3359,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1588448902}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.5788679
+  m_Size: 0.5788711
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4703,15 +4665,7 @@ MonoBehaviour:
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
-    m_Options:
-    - m_Text: 30
-      m_Image: {fileID: 0}
-    - m_Text: 60
-      m_Image: {fileID: 0}
-    - m_Text: 120
-      m_Image: {fileID: 0}
-    - m_Text: Unlimited
-      m_Image: {fileID: 0}
+    m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -9304,8 +9258,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 959214819}
   m_HandleRect: {fileID: 959214818}
   m_Direction: 2
-  m_Value: 1.0000002
-  m_Size: 0.47058827
+  m_Value: 0.9999999
+  m_Size: 0.47058824
   m_NumberOfSteps: 10
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12067,7 +12021,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -22014,6 +21968,44 @@ RectTransform:
   m_AnchoredPosition: {x: 35.0625, y: -113}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!84 &1163112410
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &1178961319
 GameObject:
   m_ObjectHideFlags: 0
@@ -23774,7 +23766,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9cdab13e4abdab4a98711a671dfaf3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  qualityLevels: []
+  qualityLevels:
+  - {fileID: 11400000, guid: 035f270849125604daab12c7b12d0e3a, type: 2}
+  - {fileID: 11400000, guid: dacf2e221f932044e93bb1a8e2bcdf3a, type: 2}
+  - {fileID: 11400000, guid: eef46665e3624b94cacb0ec130033660, type: 2}
+  - {fileID: 11400000, guid: c375db79fd5a015448e4046f6f3fd081, type: 2}
   QualityDropdown: {fileID: 1705411838}
   volMixer: {fileID: 24100000, guid: 6444fd7fb45414c4eb4004205cae7091, type: 2}
   FullscreenToggle: {fileID: 103822160}
@@ -23786,7 +23782,7 @@ MonoBehaviour:
   - 120 FPS
   - Unlimited
   ResolutionDropdown: {fileID: 1531299492}
-  volumetrics: {fileID: 1003922911}
+  volumetrics: {fileID: 1802528473}
   FPSDisplay: {fileID: 1060467986}
 --- !u!114 &1253713670
 MonoBehaviour:
@@ -29251,7 +29247,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 101301493}
+        m_Texture: {fileID: 1163112410}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -29274,7 +29270,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.575, g: 0.575, b: 0.575, a: 0}
     - _DetailData: {r: 0.5, g: 4, b: -0.5, a: 0}
-    - _DetailWindDirection: {r: 5.143988, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: 0.055291593, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: -0.30000007, b: 0.000004, a: 0.000011199999}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
@@ -29285,7 +29281,7 @@ Material:
     - _ShadowData: {r: 1, g: 0, b: 62115.59, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: -0.045704313, g: 0.6536023, b: -0.7554569, a: 0}
-    - _WindDirection: {r: 5.143988, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: 0.055291593, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &1615798318
 GameObject:
@@ -32084,7 +32080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1802528474}
   m_Layer: 0
-  m_Name: volumetrics (1)
+  m_Name: Volumetrics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32264,7 +32260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -34602,7 +34598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

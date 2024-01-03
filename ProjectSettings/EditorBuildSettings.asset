@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stefan/PlayScene1.unity
     guid: 9bfcb338d9f8bb6439206ce27e18e549
+  - enabled: 1
+    path: Assets/Scenes/Startup_Animations/Startup_animation_1.unity
+    guid: 9e95f14f9f68d9049b287c7bc5012785
   m_configObjects: {}
