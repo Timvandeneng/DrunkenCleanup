@@ -21,10 +21,16 @@ public class player_controller : MonoBehaviour
 
     public Transform ForcePosition;
 
+    public ParticleSystem Clouds;
+    public float emitSpeed;
+    public float activationspeed;
+    float resetEmit;
+
     // Start is called before the first frame update
     void Start()
     {
         hipsrb = GetComponent<Rigidbody>();
+        resetEmit = emitSpeed;
     }
 
     private void FixedUpdate()
@@ -49,5 +55,18 @@ public class player_controller : MonoBehaviour
         //animations
         //character wil try to go to animations
         modelAnim.SetBool("Walking", DesiredZvel != 0 ? true : false);
+        if(transform.InverseTransformDirection(hipsrb.velocity).x > activationspeed)
+        {
+            emitSpeed -= Time.deltaTime;
+            if(emitSpeed < 0)
+            {
+                Clouds.Emit(1);
+                emitSpeed = resetEmit;
+            }
+        }
+        else
+        {
+            emitSpeed = resetEmit;
+        }
     }
 }

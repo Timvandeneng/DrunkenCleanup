@@ -13,10 +13,20 @@ public class Grabbable_Object : MonoBehaviour
 
     Rigidbody rb;
 
+    public Transform us;
+
+    Transform Holding, Topfloor, Bottomfloor;
+    public bool CleaningProducts = false;
+    Trash_Manager mngr;
+    public float Yposition = 12;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        mngr = GameObject.FindFirstObjectByType<Trash_Manager>();
+        Holding = mngr.Idle;
+        Topfloor = mngr.Topfloor;
+        Bottomfloor = mngr.BottomFloor;
         rb = GetComponent<Rigidbody>();
 
         //first we set the size of the array to the ammount of hands there are in the scene
@@ -102,23 +112,26 @@ public class Grabbable_Object : MonoBehaviour
         if (leftGrab)
             StickToLeftHand(hand);
 
-        if (!Lefthand[hand].gameObject.GetComponent<Grab>().Pressing)
+        if (!Lefthand[hand].gameObject.GetComponent<Grab>().Pressing && rightGrab == false)
         {
             leftGrab = false;
             rb.isKinematic = false;
-            ResetLayer();
             Lefthand[hand].gameObject.GetComponent<Grab>().Isgrabbing = false;
         }
 
         if (rightGrab)
             StickToRightHand(hand);
 
-        if (!Righthand[hand].gameObject.GetComponent<Grab>().Pressing)
+        if (!Righthand[hand].gameObject.GetComponent<Grab>().Pressing && leftGrab == false)
         {
             rightGrab = false;
             rb.isKinematic = false;
-            ResetLayer();
             Righthand[hand].gameObject.GetComponent<Grab>().Isgrabbing = false;
+        }
+
+        if(!Righthand[hand].gameObject.GetComponent<Grab>().Pressing && !Lefthand[hand].gameObject.GetComponent<Grab>().Pressing)
+        {
+            ResetLayer();
         }
     }
 
@@ -128,6 +141,10 @@ public class Grabbable_Object : MonoBehaviour
         rb.isKinematic = true;
         rb.rotation = Lefthand[index].rotation;
         this.gameObject.layer = 6;
+        if (!CleaningProducts)
+        {
+            us.SetParent(Holding);
+        }
     }
 
     public void StickToRightHand(int index)
@@ -136,10 +153,23 @@ public class Grabbable_Object : MonoBehaviour
         rb.isKinematic = true;
         rb.rotation = Righthand[index].rotation;
         this.gameObject.layer = 6;
+        if (!CleaningProducts)
+        {
+          us.SetParent(Holding);
+        }
     }
 
     public void ResetLayer()
     {
         this.gameObject.layer = 0;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Topfloor"))
+        {
+            us.SetParent(Topfloor);
+            Debug.Log("SHOULD GO ON TOPFLOOR");
+        }
     }
 }

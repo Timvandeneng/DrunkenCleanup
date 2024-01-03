@@ -1388,7 +1388,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: pelvis/l hip/left knee
+    path: pelvis/l hip
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1400,7 +1400,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: pelvis/l hip/left knee
+    path: pelvis/l hip
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1412,7 +1412,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: pelvis/l hip/left knee
+    path: pelvis/l hip
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1424,7 +1424,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: pelvis/middle spine
+    path: pelvis/l hip/left knee
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1436,7 +1436,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: pelvis/middle spine
+    path: pelvis/l hip/left knee
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1448,43 +1448,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: pelvis/middle spine
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: pelvis/middle spine/r shoulder/r elbow
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: pelvis/middle spine/r shoulder/r elbow
-    classID: 4
-    script: {fileID: 0}
-    flags: 0
-  - serializedVersion: 2
-    curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: pelvis/middle spine/r shoulder/r elbow
+    path: pelvis/l hip/left knee
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1532,7 +1496,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: pelvis/middle spine/l houlder
+    path: pelvis/middle spine/l houlder/l elbow
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1544,7 +1508,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: pelvis/middle spine/l houlder
+    path: pelvis/middle spine/l houlder/l elbow
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1556,7 +1520,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: pelvis/middle spine/l houlder
+    path: pelvis/middle spine/l houlder/l elbow
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1604,7 +1568,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: pelvis/middle spine/l houlder/l elbow
+    path: pelvis/middle spine/r shoulder/r elbow
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1616,7 +1580,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: pelvis/middle spine/l houlder/l elbow
+    path: pelvis/middle spine/r shoulder/r elbow
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1628,7 +1592,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: pelvis/middle spine/l houlder/l elbow
+    path: pelvis/middle spine/r shoulder/r elbow
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1640,7 +1604,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: pelvis/l hip
+    path: pelvis/middle spine/l houlder
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1652,7 +1616,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: pelvis/l hip
+    path: pelvis/middle spine/l houlder
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -1664,7 +1628,43 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: pelvis/l hip
+    path: pelvis/middle spine/l houlder
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: pelvis/middle spine
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: pelvis/middle spine
+    classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: pelvis/middle spine
     classID: 4
     script: {fileID: 0}
     flags: 0

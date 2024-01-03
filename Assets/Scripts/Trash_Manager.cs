@@ -12,8 +12,9 @@ public class Trash_Manager : MonoBehaviour
     public GameObject trashpile;
     public GameObject waterPile;
     public GameObject BigTrash;
-    public bool willspawnTrash, willspawnPuddles, willspawnBigTrash;
-    public int minTrash, maxTrash, minpuddle, maxpuddle, minBigTrash, maxBigTrash;
+    public GameObject Human;
+    public bool willspawnTrash, willspawnPuddles, willspawnBigTrash, willspawnHumans;
+    public int minTrash, maxTrash, minpuddle, maxpuddle, minBigTrash, maxBigTrash, minHuman, maxHuman;
 
     [Header("Ground Physisc")]
     public Transform ground;
@@ -28,7 +29,7 @@ public class Trash_Manager : MonoBehaviour
     public float WinPercentage;
     public GameObject WinScreen;
     public GameObject NormalUI;
-    public int SmallTrashValue, Bigtrashvalue, WaterPuddleValue;
+    public int SmallTrashValue, Bigtrashvalue, WaterPuddleValue, HumanValue;
 
     [Header("Misc")]
     [HideInInspector]
@@ -36,15 +37,19 @@ public class Trash_Manager : MonoBehaviour
     float StartTrash = 0;
     float StartWater = 0;
     float StartBigTrash = 0;
+    float StartHumans = 0;
     [HideInInspector]
     public float currentWaterAmount;
     public float currentBigTrashAmount;
     public float CurrentShardsAmmount;
+    public float currentHumanAmmount;
     public float MaxShards;
 
     [Header("U.I. Elements")]
     public TextMeshProUGUI PercentText;
     public Image LoadingBar;
+
+    public Transform Topfloor, BottomFloor, Idle;
 
     void Start()
     {
@@ -59,6 +64,10 @@ public class Trash_Manager : MonoBehaviour
         if (willspawnBigTrash)
         {
             SpawnBigTrash();
+        }
+        if (willspawnHumans)
+        {
+            SpawnHumans();
         }
     }
 
@@ -110,6 +119,22 @@ public class Trash_Manager : MonoBehaviour
         }
     }
 
+    void SpawnHumans()
+    {
+        StartHumans = Random.Range(minHuman, maxHuman);
+
+        StartHumans = StartHumans * HumanValue;
+
+        for (int i = 0; i < StartHumans / HumanValue; i++)
+        {
+            currentHumanAmmount = StartHumans;
+            int WhichBox = Random.Range(0, boundingbox.Length);
+            Vector3 HumanPos = new Vector3(Random.Range(boundingbox[WhichBox].position.x - (boundingbox[WhichBox].localScale.x / 2), boundingbox[WhichBox].position.x + (boundingbox[WhichBox].localScale.x / 2)), (boundingbox[WhichBox].position.y + groundOffset * 2), Random.Range(boundingbox[WhichBox].position.z - (boundingbox[WhichBox].localScale.z / 2), boundingbox[WhichBox].position.z + (boundingbox[WhichBox].localScale.z / 2)));
+            GameObject instance = Instantiate(Human, HumanPos, Quaternion.identity);
+            instance.transform.parent = Parents[WhichBox];
+        }
+    }
+
     private void Update()
     {
         //U.I.
@@ -133,7 +158,7 @@ public class Trash_Manager : MonoBehaviour
 
     float PercentageOfTrash()
     {
-        return ((100 / (StartTrash + StartWater + StartBigTrash)) * (currentSmallTrashAmount + currentWaterAmount + currentBigTrashAmount + CurrentShardsAmmount));
+        return ((100 / (StartTrash + StartWater + StartBigTrash + StartHumans)) * (currentSmallTrashAmount + currentWaterAmount + currentBigTrashAmount + CurrentShardsAmmount + currentHumanAmmount));
     }
 
     void AllTrashCleaned()

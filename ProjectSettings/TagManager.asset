@@ -15,6 +15,10 @@ TagManager:
   - Broom
   - Righthand
   - Lefthand
+  - Ragdoll
+  - Holding
+  - Topfloor
+  - Bottomfloor
   layers:
   - Default
   - TransparentFX

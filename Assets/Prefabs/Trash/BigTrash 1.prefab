@@ -147,8 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae18f3da130bb449a271c3c4916e615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Isbeingrabbedleft: 0
-  isbeingrabbedright: 0
+  Lefthand: []
+  Righthand: []
+  us: {fileID: 2392181901738034064}
+  CleaningProducts: 0
+  Yposition: 12
 --- !u!1001 &5895793987608016182
 PrefabInstance:
   m_ObjectHideFlags: 0
