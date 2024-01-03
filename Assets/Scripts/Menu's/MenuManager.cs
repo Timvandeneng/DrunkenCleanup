@@ -33,6 +33,6 @@ public class MenuManager : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("PlayScene1");
+        SceneManager.LoadScene("Startup_animation_1");
     }
 }
