@@ -80,7 +80,7 @@ MonoBehaviour:
     m_AscentLine: 91.71387
     m_CapLine: 66
     m_MeanLine: 65
-    m_Baseline: 0
+    m_Baseline: 0.1
     m_DescentLine: -24.389648
     m_SuperscriptOffset: 91.71387
     m_SuperscriptSize: 0.5

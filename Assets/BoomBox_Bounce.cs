@@ -29,6 +29,6 @@ public class BoomBox_Bounce : MonoBehaviour
             timer = resettimer;
         }
 
-        transform.localRotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.forward * rotation), rotSpeed * Time.deltaTime);
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(transform.forward * rotation), rotSpeed * Time.deltaTime);
     }
 }

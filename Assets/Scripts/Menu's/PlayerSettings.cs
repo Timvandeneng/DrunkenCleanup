@@ -116,11 +116,11 @@ public class PlayerSettings : MonoBehaviour
         PlayerPrefs.SetInt("QualityLevel", index);
         if (index < 2)
         {
-            volumetrics.active = false;
+            volumetrics.SetActive(false);
         }
         else
         {
-            volumetrics.active = true;
+            volumetrics.SetActive(true);
         }
     }
 

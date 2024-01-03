@@ -63,7 +63,7 @@ public class Afval : MonoBehaviour
             transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), shrinkSpeed);
             if (transform.localScale.x < destroySize)
             {
-                gameManager.currentSmallTrashAmount--;
+                gameManager.currentSmallTrashAmount -= gameManager.SmallTrashValue;
                 Destroy(this.gameObject);
             }
         }

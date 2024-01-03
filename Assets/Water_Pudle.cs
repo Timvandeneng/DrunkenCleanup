@@ -25,14 +25,14 @@ public class Water_Pudle : MonoBehaviour
         {
             if (puddlehealth <= 0)
             {
-                TrashMngr.currentWaterAmount--;
+                TrashMngr.currentWaterAmount -= TrashMngr.WaterPuddleValue;
                 dead = true;
             }
         }
         else
         {
             Debug.Log("Destroy Puddle");
-            SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+            SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
             sprite.color -= new Color(0, 0, 0, 1 * Time.deltaTime);
             if(sprite.color.a < 0)
             {

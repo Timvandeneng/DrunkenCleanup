@@ -26,7 +26,7 @@ public class TrashBin : MonoBehaviour
     {
         if (other.CompareTag("Item"))
         {
-            trash.currentBigTrashAmount--;
+            trash.currentBigTrashAmount -= trash.Bigtrashvalue;
             bin.localScale = bin.localScale * growSize;
             Instantiate(trashEffect, trashpos.position, Quaternion.identity);
             Destroy(other.gameObject);

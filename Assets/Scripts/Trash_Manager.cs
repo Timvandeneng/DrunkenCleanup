@@ -28,7 +28,9 @@ public class Trash_Manager : MonoBehaviour
     public float WinPercentage;
     public GameObject WinScreen;
     public GameObject NormalUI;
+    public int SmallTrashValue, Bigtrashvalue, WaterPuddleValue;
 
+    [Header("Misc")]
     [HideInInspector]
     public float currentSmallTrashAmount;
     float StartTrash = 0;
@@ -63,8 +65,9 @@ public class Trash_Manager : MonoBehaviour
     void SpawnTrash()
     {
             StartTrash = Random.Range(minTrash, maxTrash);
+            StartTrash = StartTrash * SmallTrashValue;
 
-            for (int i = 0; i < StartTrash; i++)
+            for (int i = 0; i < StartTrash / SmallTrashValue; i++)
             {
                 currentSmallTrashAmount = StartTrash;
                 int WhichBox = Random.Range(0, boundingbox.Length);
@@ -77,8 +80,8 @@ public class Trash_Manager : MonoBehaviour
     void SpawnPuddles()
     {
         StartWater = Random.Range(minpuddle, maxpuddle);
-
-        for (int i = 0; i < StartWater; i++)
+        StartWater = StartWater * WaterPuddleValue;
+        for (int i = 0; i < StartWater / WaterPuddleValue; i++)
         {
             currentWaterAmount = StartWater;
             int WhichBox = Random.Range(0, boundingbox.Length);
@@ -93,8 +96,11 @@ public class Trash_Manager : MonoBehaviour
     void SpawnBigTrash()
     {
         StartBigTrash = Random.Range(minBigTrash, maxBigTrash);
+        //make sure we multiply our bigtrash by the value that it's worth.
+        //also divide in the for loop so we still keep the ammount the same
+        StartBigTrash = StartBigTrash * Bigtrashvalue;
 
-        for(int i = 0; i < StartBigTrash; i++)
+        for(int i = 0; i < StartBigTrash / Bigtrashvalue; i++)
         {
             currentBigTrashAmount = StartBigTrash;
             int WhichBox = Random.Range(0, boundingbox.Length);
