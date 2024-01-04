@@ -18,13 +18,19 @@ public class Arrow_Script : MonoBehaviour
 
     TextMeshPro Loctext;
 
+    //all for the glow effect
+    trashBinOpener trashcanscrpt;
+    Human_Store_place shackScrpt;
+
     // Start is called before the first frame update
     void Start()
     {
         SelectedBin = Bins[0];
         SelectedToilet = Toilets[0];
         Target = SelectedBin;
+        trashcanscrpt = Bins[0].GetComponent<trashBinOpener>();
         Loctext = Model.GetComponentInChildren<TextMeshPro>();
+        shackScrpt = FindFirstObjectByType<Human_Store_place>();
     }
 
     private void FixedUpdate()
@@ -46,12 +52,15 @@ public class Arrow_Script : MonoBehaviour
         {
             case 0:
                 transform.localScale = Vector3.zero;
+                trashcanscrpt.selected = false;
+                shackScrpt.Selected = false;
                 Loctext.text = "";
                 break;
 
             case 1:
                 transform.localScale = new Vector3(1, 1, 1);
                 Target = SelectedBin;
+                trashcanscrpt.selected = true;
                 Loctext.text = "Trash-Can";
                 break;
 
@@ -63,6 +72,7 @@ public class Arrow_Script : MonoBehaviour
             case 3:
                 transform.localScale = new Vector3(1, 1, 1);
                 Target = Shack;
+                shackScrpt.Selected = true;
                 Loctext.text = "Shack";
                 break;
         }
@@ -77,6 +87,7 @@ public class Arrow_Script : MonoBehaviour
             if (dist < CurDist && Bins[i].gameObject.activeInHierarchy)
             {
                 SelectedBin = Bins[i];
+                trashcanscrpt = Bins[i].GetComponent<trashBinOpener>();
             }
 
             if (i == Bins.Count)

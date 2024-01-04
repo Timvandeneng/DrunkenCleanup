@@ -8,9 +8,13 @@ public class trashBinOpener : MonoBehaviour
     public float RotationSpeed;
     public float rotation;
 
+    public bool selected;
+
     Quaternion restrot;
 
     bool open;
+
+    public GameObject SelectGlow;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +34,15 @@ public class trashBinOpener : MonoBehaviour
         {
             Quaternion desiredRot = Quaternion.Euler(restrot.eulerAngles.x, restrot.eulerAngles.y, restrot.eulerAngles.z);
             lid.localRotation = Quaternion.Lerp(lid.localRotation, desiredRot, RotationSpeed * Time.deltaTime);
+        }
+
+        if (selected)
+        {
+            SelectGlow.SetActive(true);
+        }
+        else
+        {
+            SelectGlow.SetActive(false);
         }
     }
 

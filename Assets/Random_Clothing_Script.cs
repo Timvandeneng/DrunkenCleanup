@@ -34,7 +34,7 @@ public class Random_Clothing_Script : MonoBehaviour
                 ShortPants.SetActive(true);
                 break;
             default:
-                //
+                longPants.SetActive(true);
                 break;
         }
 

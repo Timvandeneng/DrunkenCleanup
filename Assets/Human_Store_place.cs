@@ -12,10 +12,25 @@ public class Human_Store_place : MonoBehaviour
     public GameObject UIEff;
     Score_Adder_Handler UiHandler;
 
+    public bool Selected;
+    public GameObject Glow;
+
     // Start is called before the first frame update
     void Start()
     {
         manager = GameObject.FindFirstObjectByType<Trash_Manager>();
+    }
+
+    private void Update()
+    {
+        if (Selected)
+        {
+            Glow.SetActive(true);
+        }
+        else
+        {
+            Glow.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
