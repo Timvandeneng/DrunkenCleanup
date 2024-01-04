@@ -11,10 +11,17 @@ public class TrashBin : MonoBehaviour
     public float ShrinkSpeed;
     public float growSize;
     Vector3 normalscale;
+    Arrow_Script arrow;
+
+    //this is the effect of the U.I.
+    public GameObject UIEff;
+    Score_Adder_Handler UiHandler;
+
     private void Start()
     {
         trash = GameObject.FindFirstObjectByType<Trash_Manager>();
         normalscale = bin.localScale;
+        arrow = FindFirstObjectByType<Arrow_Script>();
     }
 
     private void Update()
@@ -29,6 +36,9 @@ public class TrashBin : MonoBehaviour
             trash.currentBigTrashAmount -= trash.Bigtrashvalue;
             bin.localScale = bin.localScale * growSize;
             Instantiate(trashEffect, trashpos.position, Quaternion.identity);
+            UiHandler = Instantiate(UIEff, transform.position, Quaternion.identity).GetComponent<Score_Adder_Handler>();
+            UiHandler.Ammount = trash.Bigtrashvalue;
+            arrow.WhichTarget = 0;
             Destroy(other.gameObject);
         }
     }

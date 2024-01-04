@@ -23,11 +23,15 @@ public class Player_Interaction_Script : MonoBehaviour
             if (hit.collider.CompareTag("Toilet"))
             {
                 barfMngr.StandingOnToilet = true;
+                barfMngr.Toilet = hit.collider.gameObject.GetComponent<Toilet_Script>();
+                Debug.Log(hit.collider.gameObject.GetComponent<Toilet_Script>());
             }
             else
             {
                 barfMngr.StandingOnToilet = false;
+                barfMngr.Toilet = null;
             }
         }
+
     }
 }

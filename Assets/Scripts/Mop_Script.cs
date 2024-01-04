@@ -17,6 +17,11 @@ public class Mop_Script : MonoBehaviour
     Water_Pudle pudlescrpt;
 
     Barf_Puddle Barf;
+
+    //this is the effect of the U.I.
+    public GameObject UIEff;
+    Score_Adder_Handler UiHandler;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +39,9 @@ public class Mop_Script : MonoBehaviour
                 Vector3 desiredRot = new Vector3(90, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
                 pudlescrpt.Masks.Add(Instantiate(spriteMask, transform.position + new Vector3(0, Ground.position.y + spawnheight, 0), Quaternion.Euler(desiredRot)));
                 pudlescrpt.puddlehealth--;
+                UiHandler = Instantiate(UIEff, transform.position, Quaternion.identity).GetComponent<Score_Adder_Handler>();
+                UiHandler.Ammount = trash.WaterPuddleValue / pudlescrpt.starthealth;
+                trash.currentWaterAmount -= trash.WaterPuddleValue / pudlescrpt.starthealth;
                 lastpos = transform.position;
             }
 

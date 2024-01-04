@@ -21,6 +21,7 @@ public class Barf_Manager : MonoBehaviour
     public float randomBarfPosTime;
     public float BarfRiser;
     public float BarfYOffset;
+    public float maxIdleUI;
     float resetbarfpos;
 
     [Header("Gameobjects")]
@@ -32,11 +33,14 @@ public class Barf_Manager : MonoBehaviour
     public Transform Staartje;
     [HideInInspector]
     public Transform Ground;
+    [HideInInspector]
+    public Toilet_Script Toilet;
 
     [Header("Special Effects")]
     public Volume volume;
     private ChromaticAberration chrom;
     private PaniniProjection panproj;
+    private Vignette vign;
     public RectTransform BarfMeterWhole;
     Vector3 startpos;
     public float TrembleSpeed;
@@ -67,6 +71,9 @@ public class Barf_Manager : MonoBehaviour
         if (volume.profile.TryGet<PaniniProjection>(out panproj))
         {
         }
+        if (volume.profile.TryGet<Vignette>(out vign))
+        {
+        }
     }
 
     // Update is called once per frame
@@ -90,9 +97,9 @@ public class Barf_Manager : MonoBehaviour
 
         if (randomBarfPosTime < 0 && !isBarfing)
         {
-            targetValue = Random.Range(0f, 70f);
+            targetValue = Random.Range(0f, maxIdleUI);
             CharacterAnim.SetBool("Barf", false);
-            targetValue = targetValue / 70;
+            targetValue = targetValue / 100;
             randomBarfPosTime = resetbarfpos;
         }
 
@@ -105,6 +112,7 @@ public class Barf_Manager : MonoBehaviour
             //VISUALS
             chrom.intensity.value = normalbarf;
             panproj.distance.value = normalbarf;
+            vign.intensity.value = normalbarf;
             if (normalbarf > 0.99f)
             {
                 randomBarfPosTime = resetbarfpos;
@@ -117,6 +125,7 @@ public class Barf_Manager : MonoBehaviour
             idletimer -= Time.deltaTime;
             chrom.intensity.value = currentValue;
             panproj.distance.value = currentValue;
+            vign.intensity.value = currentValue;
         }
 
         Barfmeter.fillAmount = currentValue;
@@ -156,6 +165,10 @@ public class Barf_Manager : MonoBehaviour
         {
             Vector3 BarfPosition = new Vector3(BarfLocation.position.x, Ground.position.y + BarfYOffset, BarfLocation.position.z);
             Instantiate(BarfPool, BarfPosition, Quaternion.Euler(Vector3.zero));
+        }
+        else
+        {
+            Toilet.Dirty = true;
         }
         normalbarf = 0;
         isBarfing = false;

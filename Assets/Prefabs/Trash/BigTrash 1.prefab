@@ -149,9 +149,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lefthand: []
   Righthand: []
+  leftGrab: 0
+  rightGrab: 0
   us: {fileID: 2392181901738034064}
   CleaningProducts: 0
   Yposition: 12
+  TrashType: Big
 --- !u!1001 &5895793987608016182
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,9 +7,13 @@ public class Grabbable_Object : MonoBehaviour
     public Transform[] Lefthand;
     public Transform[] Righthand;
 
-    bool leftGrab;
-    bool rightGrab;
+    [HideInInspector]
+    public bool leftGrab;
+    [HideInInspector]
+    public bool rightGrab;
     int hand;
+
+    Arrow_Script Arrow;
 
     Rigidbody rb;
 
@@ -20,6 +24,11 @@ public class Grabbable_Object : MonoBehaviour
     Trash_Manager mngr;
     public float Yposition = 12;
 
+    [Header("Big, Human")]
+    public string TrashType;
+
+    bool alreadyReset = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +37,8 @@ public class Grabbable_Object : MonoBehaviour
         Topfloor = mngr.Topfloor;
         Bottomfloor = mngr.BottomFloor;
         rb = GetComponent<Rigidbody>();
+
+        Arrow = FindFirstObjectByType<Arrow_Script>();
 
         //first we set the size of the array to the ammount of hands there are in the scene
         //this is handy for multiplayer later on
@@ -62,10 +73,8 @@ public class Grabbable_Object : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, Lefthand[i].position) < Lefthand[i].gameObject.GetComponent<Grab>().ActivationDistance)
             {
-                Debug.Log("can be grabbed");
                 if (Lefthand[i].gameObject.GetComponent<Grab>().Pressing && !Lefthand[i].gameObject.GetComponent<Grab>().Isgrabbing && !rightGrab)
                 {
-                    Debug.Log("Should be grabbed");
                     leftGrab = true;
                     hand = i;
                     Lefthand[i].gameObject.GetComponent<Grab>().Isgrabbing = true;
@@ -88,10 +97,8 @@ public class Grabbable_Object : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, Righthand[i].position) < Righthand[i].gameObject.GetComponent<Grab>().ActivationDistance)
             {
-                Debug.Log("can be grabbed");
                 if (Righthand[i].gameObject.GetComponent<Grab>().Pressing && !Righthand[i].gameObject.GetComponent<Grab>().Isgrabbing && !leftGrab)
                 {
-                    Debug.Log("Should be grabbed");
                     rightGrab = true;
                     hand = i;
                     Righthand[i].gameObject.GetComponent<Grab>().Isgrabbing = true;
@@ -141,6 +148,7 @@ public class Grabbable_Object : MonoBehaviour
         rb.isKinematic = true;
         rb.rotation = Lefthand[index].rotation;
         this.gameObject.layer = 6;
+        SetArrow();
         if (!CleaningProducts)
         {
             us.SetParent(Holding);
@@ -153,6 +161,7 @@ public class Grabbable_Object : MonoBehaviour
         rb.isKinematic = true;
         rb.rotation = Righthand[index].rotation;
         this.gameObject.layer = 6;
+        SetArrow();
         if (!CleaningProducts)
         {
           us.SetParent(Holding);
@@ -162,6 +171,11 @@ public class Grabbable_Object : MonoBehaviour
     public void ResetLayer()
     {
         this.gameObject.layer = 0;
+        if (!alreadyReset)
+        {
+            Arrow.WhichTarget = 0;
+            alreadyReset = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -169,7 +183,28 @@ public class Grabbable_Object : MonoBehaviour
         if(other.CompareTag("Topfloor"))
         {
             us.SetParent(Topfloor);
-            Debug.Log("SHOULD GO ON TOPFLOOR");
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Topfloor"))
+        {
+            us.SetParent(Bottomfloor);
+        }
+    }
+
+    void SetArrow()
+    {
+        alreadyReset = false;
+        if (TrashType == "Big")
+        {
+            Arrow.WhichTarget = 1;
+        }
+        if(TrashType == "Human")
+        {
+            Arrow.WhichTarget = 3;
+        }
+    }
+
 }

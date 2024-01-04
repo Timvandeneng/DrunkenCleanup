@@ -153,3 +153,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puddlehealth: 5
   Masks: []
+  UIEff: {fileID: 7741015892486323494, guid: 06312ded1a676f249b0fc33fa4e9fc06, type: 3}

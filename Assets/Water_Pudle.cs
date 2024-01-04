@@ -5,6 +5,8 @@ using UnityEngine;
 public class Water_Pudle : MonoBehaviour
 {
     public int puddlehealth = 5;
+    [HideInInspector]
+    public int starthealth;
 
     public List<GameObject> Masks;
 
@@ -12,10 +14,15 @@ public class Water_Pudle : MonoBehaviour
 
     bool dead = false;
 
+    //this is the effect of the U.I.
+    public GameObject UIEff;
+    Score_Adder_Handler UiHandler;
+
     // Start is called before the first frame update
     void Start()
     {
         TrashMngr = GameObject.FindFirstObjectByType<Trash_Manager>();
+        starthealth = puddlehealth;
     }
 
     // Update is called once per frame
@@ -25,7 +32,6 @@ public class Water_Pudle : MonoBehaviour
         {
             if (puddlehealth <= 0)
             {
-                TrashMngr.currentWaterAmount -= TrashMngr.WaterPuddleValue;
                 dead = true;
             }
         }

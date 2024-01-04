@@ -16,11 +16,18 @@ public class VacuumCleanerModel : MonoBehaviour
     public float minDistanceModel;
     public float modelSpeed;
     public bool IsVacuum;
+    public Grabbable_Object grabobj;
+
+    [Header("AnimationPhysics")]
+    public float shrinkspeed;
+    public float growsize;
+    Vector3 originalsize;
 
     // Start is called before the first frame update
     void Start()
     {
         Model.position = new Vector3(IdealModelPos.position.x, Ground.position.y, IdealModelPos.position.z);
+        originalsize = Model.localScale;
     }
 
     // Update is called once per frame
@@ -37,6 +44,8 @@ public class VacuumCleanerModel : MonoBehaviour
         {
             SetModelToIdealPos();
         }
+
+        Model.localScale = Vector3.Lerp(Model.localScale, originalsize, shrinkspeed * Time.deltaTime);
     }
 
     public void ScaleBetweenPoints()

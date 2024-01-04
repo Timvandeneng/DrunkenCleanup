@@ -5397,7 +5397,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 292642436}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1683422614}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &292642436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20949,6 +20961,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7240671857006760588, guid: 680f98607ba3a4249b8a134c74e20543,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240671857006760588, guid: 680f98607ba3a4249b8a134c74e20543,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240671857006760588, guid: 680f98607ba3a4249b8a134c74e20543,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240671857006760588, guid: 680f98607ba3a4249b8a134c74e20543,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6904364
       objectReference: {fileID: 0}
@@ -29076,6 +29103,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - VF2_CONSTANT_DENSITY
   - VF2_DISTANCE
   - VF2_NATIVE_LIGHTS
   - VF2_RECEIVE_SHADOWS
@@ -29136,18 +29164,18 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.575, g: 0.575, b: 0.575, a: 0}
     - _DetailData: {r: 0.5, g: 4, b: -0.5, a: 0}
-    - _DetailWindDirection: {r: 0.00029999999, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: 0.0053, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: -0.30000007, b: 0.000004, a: 0.000011199999}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarSize: {r: 0, g: 0, b: 0, a: 1}
     - _LightColor: {r: 5.0141, g: 4.797806, b: 4.2079115, a: 0.1}
     - _MaxDistanceData: {r: 202.78, g: 203.78, b: 1, a: 0}
-    - _RayMarchSettings: {r: 0.5, g: 0.0087, b: 1, a: 0.2}
+    - _RayMarchSettings: {r: 0.25, g: 0.0087, b: 1, a: 0.2}
     - _ShadowData: {r: 1, g: 0, b: 62115.59, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: -0.045704313, g: 0.6536023, b: -0.7554569, a: 0}
-    - _WindDirection: {r: 0.00029999999, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: 0.0053, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &1615798318
 GameObject:
@@ -34306,7 +34334,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1871261268}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 404818053}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1871261268
 MonoBehaviour:
   m_ObjectHideFlags: 0

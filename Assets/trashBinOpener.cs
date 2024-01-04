@@ -38,7 +38,6 @@ public class trashBinOpener : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             open = true;
-            Debug.Log("Open the foking bin");
         }
     }
 

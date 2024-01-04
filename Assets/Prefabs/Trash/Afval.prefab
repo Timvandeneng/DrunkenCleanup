@@ -55,12 +55,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 205cb490cd1dc3f46ab38ef1ddcbc28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vacuumscrpt:
+  - {fileID: 0}
+  - {fileID: 0}
   activationDistance: 10
   vacuumStrenght: 5
   SuckedUp: 0
   shrinkSpeed: 2
   destroySize: 0.1
   sprite: {fileID: 6384090048175944771}
+  UIEff: {fileID: 7741015892486323494, guid: 06312ded1a676f249b0fc33fa4e9fc06, type: 3}
 --- !u!65 &5206528560032963455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -134,7 +138,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cf1409f6a4a0f9740921e33f2ced6a71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

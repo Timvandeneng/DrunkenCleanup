@@ -36,7 +36,6 @@ public class Breakable : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(this.gameObject.name + " collided");
         Break();
     }
 
