@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Main_Menu_Manager : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class Main_Menu_Manager : MonoBehaviour
     public float DesiredALphaValue = 0;
     public float fadespeed;
     public float disableDistance;
+
+    bool loadLevel;
+    public int Scenetoload;
+
+    
 
     private void Start()
     {
@@ -45,10 +51,23 @@ public class Main_Menu_Manager : MonoBehaviour
         Color desiredcolor = new Color(0, 0, 0, DesiredALphaValue);
         FadeImg.color = Color.Lerp(FadeImg.color, desiredcolor, fadespeed * Time.unscaledTime);
 
-        if((FadeImg.color.a - DesiredALphaValue) < disableDistance)
+        if (!loadLevel)
         {
-            FadeImg.gameObject.SetActive(false);
+            if ((FadeImg.color.a - DesiredALphaValue) < disableDistance)
+            {
+                FadeImg.gameObject.SetActive(false);
+            }
         }
+        else
+        {
+            DesiredALphaValue = 1;
+            FadeImg.gameObject.SetActive(true);
+            if ((FadeImg.color.a > 0.99f))
+            {
+                SceneManager.LoadScene(Scenetoload);
+            }
+        }
+        
 
     }
 
@@ -65,5 +84,10 @@ public class Main_Menu_Manager : MonoBehaviour
     public void RemovePlayer()
     {
         Destroy(LastRagdoll);
+    }
+
+    public void LoadLevel()
+    {
+        loadLevel = true;
     }
 }

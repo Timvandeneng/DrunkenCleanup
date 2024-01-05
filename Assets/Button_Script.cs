@@ -52,6 +52,6 @@ public class Button_Script : MenuFrameBounce
     public void onHover()
     {
         body.localScale = DesiredScale * Growsize;
-        currentValue = targetValue + AlterValue;
+        //currentValue = targetValue + AlterValue;
     }
 }
