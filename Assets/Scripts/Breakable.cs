@@ -6,6 +6,7 @@ public class Breakable : MonoBehaviour
 {
     public GameObject normal;
     public GameObject broken;
+
     BoxCollider boxCollider;
     public bool canBreak;
 

@@ -61,7 +61,7 @@ public class Arrow_Script : MonoBehaviour
                 transform.localScale = new Vector3(1, 1, 1);
                 Target = SelectedBin;
                 trashcanscrpt.selected = true;
-                Loctext.text = "Trash-Can";
+                Loctext.text = "Bring To: Trash-Can";
                 break;
 
             case 2:
@@ -73,7 +73,7 @@ public class Arrow_Script : MonoBehaviour
                 transform.localScale = new Vector3(1, 1, 1);
                 Target = Shack;
                 shackScrpt.Selected = true;
-                Loctext.text = "Shack";
+                Loctext.text = "Bring To: Shack";
                 break;
         }
 

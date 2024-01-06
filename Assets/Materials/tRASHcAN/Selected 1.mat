@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Selected
+  m_Name: Selected 1
   m_Shader: {fileID: -6465566751694194690, guid: fc23675cf044d2d40b2955e34214238c,
     type: 3}
   m_Parent: {fileID: 0}
@@ -54,7 +54,7 @@ Material:
     - _transparancy: 1
     - _voronoi_size: 2.25
     m_Colors:
-    - _Color: {r: 0.14141417, g: 1, b: 0, a: 0}
+    - _Color: {r: 0, g: 1, b: 1, a: 0}
     - _glow_color: {r: 1.0802552, g: 1.0802552, b: 1.0802552, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &605447705346078721

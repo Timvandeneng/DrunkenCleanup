@@ -18,13 +18,13 @@ public class Score_Adder_Handler : MonoBehaviour
     {
         float randomRot = Random.Range(-maxrotation, maxrotation);
         ScoreText.rectTransform.rotation = Quaternion.Euler(new Vector3(0, 0, randomRot));
-        audioM.pitch = Random.Range(0.2f, 1f);
+        audioM.pitch = Ammount > 0 ? Random.Range(0.2f, 1f) : 1;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        ScoreText.text = "+" + Ammount;
+        ScoreText.text = Ammount > 0 ? "+" + Ammount : "" + Ammount;
         ScoreText.rectTransform.position += new Vector3(0, Speed * Time.deltaTime, 0);
         ScoreText.rectTransform.localScale -= new Vector3(ShrinkSpeed * Time.deltaTime, ShrinkSpeed * Time.deltaTime, 0);
 

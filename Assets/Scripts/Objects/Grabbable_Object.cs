@@ -19,6 +19,8 @@ public class Grabbable_Object : MonoBehaviour
 
     public Transform us;
 
+    public GameObject CleanerIndicator;
+
     Transform Holding, Topfloor, Bottomfloor;
     public bool CleaningProducts = false;
     Trash_Manager mngr;
@@ -27,7 +29,10 @@ public class Grabbable_Object : MonoBehaviour
     [Header("Big, Human")]
     public string TrashType;
 
+
+
     bool alreadyReset = false;
+    bool alreadyDisabled = false;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +68,10 @@ public class Grabbable_Object : MonoBehaviour
         leftcheck();
         rightCheck();
         Checktostick();
+        if (CleaningProducts)
+        {
+            CleanerIndicator.transform.rotation = Quaternion.Euler(Vector3.right * -90);
+        }
     }
 
     void leftcheck()
@@ -153,6 +162,14 @@ public class Grabbable_Object : MonoBehaviour
         {
             us.SetParent(Holding);
         }
+        else
+        {
+            if (!alreadyDisabled)
+            {
+                CleanerIndicator.SetActive(false);
+                alreadyDisabled = true;
+            }
+        }
     }
 
     public void StickToRightHand(int index)
@@ -166,6 +183,14 @@ public class Grabbable_Object : MonoBehaviour
         {
           us.SetParent(Holding);
         }
+        else
+        {
+            if (!alreadyDisabled)
+            {
+                CleanerIndicator.SetActive(false);
+                alreadyDisabled = true;
+            }
+        }
     }
 
     public void ResetLayer()
@@ -174,6 +199,11 @@ public class Grabbable_Object : MonoBehaviour
         if (!alreadyReset)
         {
             Arrow.WhichTarget = 0;
+            if (CleaningProducts)
+            {
+                CleanerIndicator.SetActive(true);
+                alreadyDisabled = false;
+            }
             alreadyReset = true;
         }
     }

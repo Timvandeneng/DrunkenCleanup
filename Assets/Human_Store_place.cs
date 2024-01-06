@@ -10,6 +10,7 @@ public class Human_Store_place : MonoBehaviour
 
     //this is the effect of the U.I.
     public GameObject UIEff;
+    public GameObject subEff;
     Score_Adder_Handler UiHandler;
 
     public bool Selected;
@@ -56,6 +57,8 @@ public class Human_Store_place : MonoBehaviour
     {
         if (other.CompareTag("Ragdoll"))
         {
+            UiHandler = Instantiate(subEff, transform.position, Quaternion.identity).GetComponent<Score_Adder_Handler>();
+            UiHandler.Ammount = -manager.HumanValue;
             manager.currentHumanAmmount += manager.HumanValue;
         }
 

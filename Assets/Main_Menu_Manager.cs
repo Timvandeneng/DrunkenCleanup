@@ -33,6 +33,7 @@ public class Main_Menu_Manager : MonoBehaviour
         Time.timeScale = 0;
         Cam = Camera.main;
         FadeImg.color = new Color(0, 0, 0, 1);
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void Update()
