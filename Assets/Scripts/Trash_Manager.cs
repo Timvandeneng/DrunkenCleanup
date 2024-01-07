@@ -45,6 +45,9 @@ public class Trash_Manager : MonoBehaviour
     public float currentHumanAmmount;
     public float MaxShards;
 
+    public float WinReturnToMain;
+    Pause_Game_Handler pause;
+
     [Header("U.I. Elements")]
     public TextMeshProUGUI PercentText;
     public Image LoadingBar;
@@ -69,6 +72,8 @@ public class Trash_Manager : MonoBehaviour
         {
             SpawnHumans();
         }
+
+        pause = FindFirstObjectByType<Pause_Game_Handler>();
     }
 
     void SpawnTrash()
@@ -165,5 +170,12 @@ public class Trash_Manager : MonoBehaviour
     {
         NormalUI.SetActive(false);
         WinScreen.SetActive(true);
+
+        WinReturnToMain -= Time.deltaTime;
+        if(WinReturnToMain < 0)
+        {
+            pause.Exit();
+        }
+        
     }
 }
