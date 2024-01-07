@@ -79,7 +79,8 @@ public class Main_Menu_Manager : MonoBehaviour
 
     public void AddPlayer()
     {
-        LastRagdoll = Instantiate(PlayerRagdoll, Spawnlocation.position, Quaternion.identity);
+
+        LastRagdoll = Instantiate(PlayerRagdoll, Spawnlocation.position, Quaternion.Euler(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f)));
     }
 
     public void RemovePlayer()

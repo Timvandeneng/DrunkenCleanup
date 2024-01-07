@@ -10,9 +10,11 @@ public class Mop_Script : MonoBehaviour
     //using a sprite mask to hide and show the underlaying puddle
     Transform Ground;
     public GameObject spriteMask;
+    public GameObject water;
     public float spawnDistance;
     public float spawnheight;
     Vector3 lastpos;
+    Vector3 lastposwater;
 
     Water_Pudle pudlescrpt;
 
@@ -26,6 +28,7 @@ public class Mop_Script : MonoBehaviour
     void Start()
     {
         trash = GameObject.FindFirstObjectByType<Trash_Manager>();
+        lastposwater = transform.position;
     }
 
     private void OnTriggerStay(Collider other)
@@ -66,4 +69,16 @@ public class Mop_Script : MonoBehaviour
             Debug.Log("BarpoolCleanup");
         }
     }
+
+    /*
+    private void Update()
+    {
+        if (Vector3.Distance(transform.position, lastposwater) > spawnDistance)
+        {
+            Vector3 desiredRot = new Vector3(90, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+            Instantiate(water, transform.position + new Vector3(0, Ground.position.y + spawnheight, 0), Quaternion.Euler(desiredRot));
+            lastposwater = transform.position;
+        }
+    }
+    */
 }

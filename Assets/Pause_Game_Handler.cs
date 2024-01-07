@@ -72,6 +72,6 @@ public class Pause_Game_Handler : MonoBehaviour
         Time.fixedDeltaTime = startFixedDeltaTime;
         Time.timeScale = 1;
         paused = false;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

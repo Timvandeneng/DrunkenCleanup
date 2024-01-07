@@ -5,6 +5,7 @@ using UnityEngine;
 public class Random_Clothing_Script : MonoBehaviour
 {
     public GameObject Sweater, tShirt, longPants, ShortPants;
+    public GameObject PenisHat, Sunglasses, HiHat;
     public SkinnedMeshRenderer Skin;
     public Material Darkskin, latteSkin, LightSkin;
 
@@ -54,6 +55,25 @@ public class Random_Clothing_Script : MonoBehaviour
                 //
                 break;
         }
+
+        int RandomCosmeticItem = Random.Range(0, 3);
+        switch(RandomCosmeticItem)
+        {
+            case 0:
+                PenisHat.SetActive(true);
+            break;
+            case 1:
+                Sunglasses.SetActive(true);
+            break;
+            case 2:
+                HiHat.SetActive(true);
+            break;
+            default:
+                //
+                break;
+        }
+
+
     }
 
     // Update is called once per frame

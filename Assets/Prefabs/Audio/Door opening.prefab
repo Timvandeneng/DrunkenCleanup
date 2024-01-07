@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1194320803825294863}
   - component: {fileID: 3361886808567560877}
+  - component: {fileID: 9214413802772524730}
   m_Layer: 0
   m_Name: Door opening
   m_TagString: Untagged
@@ -44,7 +45,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f06fb6353fdfe844e80a1e0ce863dc02, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.72
+  m_Volume: 0.416
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -128,3 +129,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9214413802772524730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2814261745303359130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05eceae04b813514db81dc27b6650806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seconds: 1

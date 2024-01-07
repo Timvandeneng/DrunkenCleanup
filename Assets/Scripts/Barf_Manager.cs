@@ -26,6 +26,7 @@ public class Barf_Manager : MonoBehaviour
 
     [Header("Gameobjects")]
     public Image Barfmeter;
+    public GameObject Happy, neutral, barf;
     public ParticleSystem Barfing;
     public Transform BarfLocation;
     public GameObject BarfPool;
@@ -133,6 +134,26 @@ public class Barf_Manager : MonoBehaviour
         if (tremble)
         {
             trembling();
+        }
+
+        //ui mechanic
+        if(currentValue < 0.25)
+        {
+            Happy.SetActive(true);
+            neutral.SetActive(false);
+            barf.SetActive(false);
+        }
+        if(currentValue > 0.25 && currentValue < 0.75)
+        {
+            Happy.SetActive(false);
+            neutral.SetActive(true);
+            barf.SetActive(false);
+        }
+        if (currentValue > 0.75)
+        {
+            Happy.SetActive(false);
+            neutral.SetActive(false);
+            barf.SetActive(true);
         }
     }
 

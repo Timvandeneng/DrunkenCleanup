@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5011638426650285227}
   - component: {fileID: 7310089591943761604}
+  - component: {fileID: 2825728048423394951}
   m_Layer: 0
   m_Name: Door closing
   m_TagString: Untagged
@@ -44,7 +45,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 84364f3bfd3d1fd4098dc65e890a96e2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.53
+  m_Volume: 0.416
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -128,3 +129,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2825728048423394951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619759171819763906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05eceae04b813514db81dc27b6650806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seconds: 1
