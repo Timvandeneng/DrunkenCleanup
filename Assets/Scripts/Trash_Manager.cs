@@ -27,9 +27,6 @@ public class Trash_Manager : MonoBehaviour
 
     [Header("Game Physics")]
     public float WinPercentage;
-    public GameObject WinScreen;
-    public GameObject PlayHouse;
-    public GameObject NormalUI;
     public int SmallTrashValue, Bigtrashvalue, WaterPuddleValue, HumanValue;
 
     [Header("Misc")]
@@ -45,6 +42,8 @@ public class Trash_Manager : MonoBehaviour
     public float CurrentShardsAmmount;
     public float currentHumanAmmount;
     public float MaxShards;
+
+    Game_Time_Manager time;
 
     public float WinReturnToMain;
     Pause_Game_Handler pause;
@@ -75,6 +74,7 @@ public class Trash_Manager : MonoBehaviour
         }
 
         pause = FindFirstObjectByType<Pause_Game_Handler>();
+        time = GetComponent<Game_Time_Manager>();
     }
 
     void SpawnTrash()
@@ -169,15 +169,6 @@ public class Trash_Manager : MonoBehaviour
 
     void AllTrashCleaned()
     {
-        NormalUI.SetActive(false);
-        PlayHouse.SetActive(false);
-        WinScreen.SetActive(true);
-
-        //WinReturnToMain -= Time.deltaTime;
-        //if(WinReturnToMain < 0)
-        //{
-         //   pause.Exit();
-       // }
-        
+        time.WinGame();
     }
 }

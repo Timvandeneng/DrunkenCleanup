@@ -12,6 +12,10 @@ public class Game_Time_Manager : MonoBehaviour
 
     [Header("Atttributes")]
     public TextMeshProUGUI TimeUI;
+
+    public GameObject House, FinishAnimation, NormalUI, playercamera, toptrash;
+    public TextMeshProUGUI winorlosetxt;
+    public AudioSource FinishAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,10 +43,33 @@ public class Game_Time_Manager : MonoBehaviour
         if(GameTime < 0)
         {
             GameTime = 0;
+            LoseGame();
         }
         float minutes = Mathf.FloorToInt(GameTime / 60);
         float seconds = Mathf.FloorToInt(GameTime % 60);
 
         TimeUI.text = string.Format("{00:00}:{01:00}", minutes, seconds);
+    }
+
+    public void WinGame()
+    {
+        winorlosetxt.text = "YOU WIN!";
+        House.SetActive(false);
+        playercamera.SetActive(false);
+        NormalUI.SetActive(false);
+        FinishAnimation.SetActive(true);
+        toptrash.SetActive(true);
+        FinishAudio.Play();
+    }
+
+    public void LoseGame()
+    {
+        winorlosetxt.text = "GROUNDED!";
+        House.SetActive(false);
+        playercamera.SetActive(false);
+        NormalUI.SetActive(false);
+        FinishAnimation.SetActive(true);
+        toptrash.SetActive(true);
+        FinishAudio.Play();
     }
 }
