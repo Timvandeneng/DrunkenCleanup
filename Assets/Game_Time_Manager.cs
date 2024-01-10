@@ -13,13 +13,16 @@ public class Game_Time_Manager : MonoBehaviour
     [Header("Atttributes")]
     public TextMeshProUGUI TimeUI;
 
-    public GameObject House, FinishAnimation, NormalUI, playercamera, toptrash;
+    public GameObject House, FinishAnimation, NormalUI, playercamera, toptrash, postprocess;
     public TextMeshProUGUI winorlosetxt;
     public AudioSource FinishAudio;
+
+    Floor_manager floormanager;
     // Start is called before the first frame update
     void Start()
     {
         GameTime = TimeinMinutes * 60;
+        floormanager = FindFirstObjectByType<Floor_manager>();
     }
 
     // Update is called once per frame
@@ -60,6 +63,8 @@ public class Game_Time_Manager : MonoBehaviour
         FinishAnimation.SetActive(true);
         toptrash.SetActive(true);
         FinishAudio.Play();
+        floormanager.gameObject.SetActive(false);
+        postprocess.SetActive(false);
     }
 
     public void LoseGame()
@@ -71,5 +76,7 @@ public class Game_Time_Manager : MonoBehaviour
         FinishAnimation.SetActive(true);
         toptrash.SetActive(true);
         FinishAudio.Play();
+        floormanager.gameObject.SetActive(false);
+        postprocess.SetActive(false);
     }
 }
