@@ -36,6 +36,8 @@ public class Barf_Manager : MonoBehaviour
     public Transform Ground;
     [HideInInspector]
     public Toilet_Script Toilet;
+    GameObject currentbarf;
+    Arrow_Script Arrow;
 
     [Header("Special Effects")]
     public Volume volume;
@@ -48,6 +50,7 @@ public class Barf_Manager : MonoBehaviour
     float resettremble;
     public float Maxdistance;
     bool tremble = false;
+    public Transform Topfloor;
 
     [Header("Spring mech")]
     public float currentValue;
@@ -66,6 +69,7 @@ public class Barf_Manager : MonoBehaviour
         resettremble = TrembleSpeed;
         startpos = BarfMeterWhole.position;
         normalbarf = 0;
+        Arrow = FindFirstObjectByType<Arrow_Script>();
         if (volume.profile.TryGet<ChromaticAberration>(out chrom))
         {
         }
@@ -119,6 +123,7 @@ public class Barf_Manager : MonoBehaviour
                 randomBarfPosTime = resetbarfpos;
                 Barf();
             }
+            Arrow.WhichTarget = 2;
         }
         else
         {
@@ -185,14 +190,21 @@ public class Barf_Manager : MonoBehaviour
         if (!StandingOnToilet)
         {
             Vector3 BarfPosition = new Vector3(BarfLocation.position.x, Ground.position.y + BarfYOffset, BarfLocation.position.z);
-            Instantiate(BarfPool, BarfPosition, Quaternion.Euler(Vector3.zero));
+            currentbarf = Instantiate(BarfPool, BarfPosition, Quaternion.Euler(Vector3.zero));
+            if(Ground.gameObject.layer == 9)
+            {
+                currentbarf.transform.parent = Topfloor;
+            }
+            Arrow.WhichTarget = 0;
         }
         else
         {
             Toilet.Dirty = true;
+            Arrow.WhichTarget = 0;
         }
         normalbarf = 0;
         isBarfing = false;
+        
     }
 
     void trembling()

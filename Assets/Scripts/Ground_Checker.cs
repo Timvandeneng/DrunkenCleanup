@@ -13,6 +13,7 @@ public class Ground_Checker : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             BarfMngr.Ground = collision.gameObject.transform;
+            Debug.Log("We just checked the ground boy");
         }
     }
 }

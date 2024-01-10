@@ -12,6 +12,6 @@ public class FanRotator : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        thisTransform.Rotate(0, speed * Time.deltaTime, 0, Space.Self);
+        thisTransform.Rotate(0, 0, speed * Time.deltaTime, Space.Self);
     }
 }

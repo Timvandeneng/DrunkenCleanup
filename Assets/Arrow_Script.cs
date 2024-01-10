@@ -66,6 +66,7 @@ public class Arrow_Script : MonoBehaviour
 
             case 2:
                 transform.localScale = new Vector3(1, 1, 1);
+                Loctext.text = "BARF IN TOILET!!!";
                 Target = SelectedToilet;
                 break;
 

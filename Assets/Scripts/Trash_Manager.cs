@@ -28,6 +28,7 @@ public class Trash_Manager : MonoBehaviour
     [Header("Game Physics")]
     public float WinPercentage;
     public GameObject WinScreen;
+    public GameObject PlayHouse;
     public GameObject NormalUI;
     public int SmallTrashValue, Bigtrashvalue, WaterPuddleValue, HumanValue;
 
@@ -169,13 +170,14 @@ public class Trash_Manager : MonoBehaviour
     void AllTrashCleaned()
     {
         NormalUI.SetActive(false);
+        PlayHouse.SetActive(false);
         WinScreen.SetActive(true);
 
-        WinReturnToMain -= Time.deltaTime;
-        if(WinReturnToMain < 0)
-        {
-            pause.Exit();
-        }
+        //WinReturnToMain -= Time.deltaTime;
+        //if(WinReturnToMain < 0)
+        //{
+         //   pause.Exit();
+       // }
         
     }
 }
