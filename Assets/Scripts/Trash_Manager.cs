@@ -11,7 +11,7 @@ public class Trash_Manager : MonoBehaviour
     public Transform[] Parents; //This is a WRONG way of doing things!! i'm doing this because of a deadline :'(
     public GameObject trashpile;
     public GameObject waterPile;
-    public GameObject BigTrash;
+    public GameObject[] BigTrash;
     public GameObject Human;
     public bool willspawnTrash, willspawnPuddles, willspawnBigTrash, willspawnHumans;
     public int minTrash, maxTrash, minpuddle, maxpuddle, minBigTrash, maxBigTrash, minHuman, maxHuman;
@@ -120,7 +120,8 @@ public class Trash_Manager : MonoBehaviour
             currentBigTrashAmount = StartBigTrash;
             int WhichBox = Random.Range(0, boundingbox.Length);
             Vector3 bigTrashPos = new Vector3(Random.Range(boundingbox[WhichBox].position.x - (boundingbox[WhichBox].localScale.x / 2), boundingbox[WhichBox].position.x + (boundingbox[WhichBox].localScale.x / 2)), (boundingbox[WhichBox].position.y + groundOffset), Random.Range(boundingbox[WhichBox].position.z - (boundingbox[WhichBox].localScale.z / 2), boundingbox[WhichBox].position.z + (boundingbox[WhichBox].localScale.z / 2)));
-            GameObject instance = Instantiate(BigTrash, bigTrashPos, Quaternion.identity);
+            int spawn = Random.Range(0, BigTrash.Length);
+            GameObject instance = Instantiate(BigTrash[spawn], bigTrashPos, Quaternion.identity);
             instance.transform.parent = Parents[WhichBox];
         }
     }
